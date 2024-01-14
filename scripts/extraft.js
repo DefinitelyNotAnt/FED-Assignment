@@ -15,7 +15,8 @@ const animateTrailer = (e, interacting) => {
     }
     // Animate
     trailer.animate(keyframes, { 
-        duration: 800, 
+        // Slows cursor down
+        duration: 500, 
         fill: "forwards" 
     });
 }
@@ -46,3 +47,5 @@ window.onmousemove = e => {
         icon.className = getTrailerClass(interactable.dataset.type);
     }
 }
+// Sets trailer to visible
+trailer.style.display = "flex";

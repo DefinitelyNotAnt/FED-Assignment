@@ -5,17 +5,23 @@ body {
     background-color: rgb(20, 20, 20);
     height: 100vh;    
     margin: 0px;  
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(10px, 4vw, 100px);
   }
-
-
-
-
-
+/* ----------------------------- */
+/* ------------Navbar----------- */
+/* ----------------------------- */
+.navbar{
+    padding: 0.75rem;
+}
+.navbar .navbar-brand{
+    color: red;
+}
+/* ----------------------------- */
+/* ----------Lottie Logo-------- */
+/* ----------------------------- */
+.navbar lottie-player{
+    width: 3rem;
+    height: 3rem;
+}
 
 
 
@@ -40,15 +46,15 @@ body:hover > #trailer {
     border-radius: 50%;
     
     position: fixed;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     z-index: 10000;
     
     pointer-events: none;
     opacity: 0;
     transition: opacity 500ms ease;
-    
-    display: grid;
+    /* Ensures trailer doesn't load when extraft.js doesnt load */
+    display: none;
     place-items: center;
 }
 
@@ -66,16 +72,11 @@ body:hover > #trailer {
 }
 /* Edit interactables   */
 .interactable {
-    aspect-ratio: 1 / 1.5;
-    background-position: center 50%;
-    background-size: 100%;  
     /* Makes transition effect */
     opacity: 0.4;
-    transition: background-size 400ms ease, opacity 400ms ease;
+    transition: opacity 400ms ease;
 }
   
 .interactable:hover {
-    background-size: 105%;
     opacity: 0.8;
 }
-  
