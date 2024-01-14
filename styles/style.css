@@ -11,9 +11,19 @@ body {
 /* ----------------------------- */
 .navbar{
     padding: 0.75rem;
+    animation: 1s ease-out 0s 1 slideInFromTop;
 }
 .navbar .navbar-brand{
     color: red;
+}
+.navbar .navbar-brand:hover{
+    color: red;
+}
+.navbar .nav-item{
+    font-weight: bold;
+}
+.navbar .nav-item{
+    padding-left: 5vw;
 }
 /* ----------------------------- */
 /* ----------Lottie Logo-------- */
@@ -35,6 +45,9 @@ body {
 /* --------Mouse trailer-------- */
 /* ----------------------------- */
 /* Makes things become fully visible on hover */
+*{
+    cursor: none;
+}
 body:hover > #trailer {
     opacity: 1;
 }
@@ -55,28 +68,50 @@ body:hover > #trailer {
     transition: opacity 500ms ease;
     /* Ensures trailer doesn't load when extraft.js doesnt load */
     display: none;
-    place-items: center;
+    align-items: center;
+    justify-items: center;
 }
 
 /* Ensures trailer is fully visible */
 #trailer:not([data-type=""]) > #trailer-icon {
     opacity: 1;
 }
-
+#trailer:not([data-type=""]){
+    background-color: white;
+    opacity: 0.8;
+}
 #trailer-icon {
     font-size: 6px;
     line-height: 4px;
-    
+    width: 50%;
+    font-style: normal;
+    transform: translateX(75%);
     opacity: 0;
     transition: opacity 400ms ease;
 }
 /* Edit interactables   */
 .interactable {
     /* Makes transition effect */
-    opacity: 0.4;
+    opacity: 0.6;
     transition: opacity 400ms ease;
 }
   
 .interactable:hover {
-    opacity: 0.8;
+    opacity: 1;
+}
+/* Forces trailer to hide */
+/* Lazy to implement Javascript to check + Javascript unreliable */
+@media only screen and (max-width: 600px){
+    #trailer{
+      display: none !important;
+    }
+}
+/* Load in animations */
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }

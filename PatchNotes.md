@@ -1,44 +1,24 @@
 # Patch Notes
 
-## Framework
-### Added sketch for Home Page design
-- PC View
-- Mobile View
+## Navbar changes
+### Slight changes to coloring
+- Opacity fix for nav links to make it more visible
+Notes: Dropdown reduced opacity was not intended but it looks better so it'll remain that way
 
-## Assets
-### Added a Lottie Animation for Logo
-- [Logo](assets/logo.json)
-Notes: Used for temporary logo (?) and maybe future micro-animations.
-Will add another for loading.
+### Slide in from top animation
+- Animation to slide navbar from top
+- Currently set to ease-out 1s
+- Only position change
+Notes: Might tinker with opacity and maybe have the links do a separate timing
 
-## Added Navbars
-### Added navbars to Home and About Pages
-- Font Color is temporary
-- Search bar is decorative for now
-- Donations section not available for now
-- Only the Home and About links work
-Notes: Change font color for links, and some opacity differences.
-
-### Navbar fit for mobile
-- Navbar collapses for mobile
-- Can be opened and collapsed for mobile into a column format
-Notes: Making collapsable icon scalable is To Be Decided. KIV scaling and color.
-
-## Mouse cursor
-### Removed old trailer
-- Old one was too chunky and felt a little off
-- Does not match the theme
-- some formatting issues in conflict with grid
-Notes: DO NOT REVERT. Old trailer will cause grid formatting to fail.
-
-### Added new trailer
-- Simple transparent circle with white outline.
-- Expands when hovering over interactables
-Notes: Remove for mobile view
-Adjust scaling to match severity of link
-(Eg. Jump to top expands a little, Go to new page expands more)
-Color fills and has an icon representing interactable type
-(Eg. Link has an arrow, Videos have a play icon)
+## Cursor update
+- Hides regular cursor for now
+- Now has a "?" icon when hovering search elements
+Notes: Might add another more solid cursor without the delay for more seamless work
+> [!NOTE]
+> Currently a temp design while thinking over how the actual design would work.
+> Current design is not practical due to trailer not being where the pointer actually is while moving.
+> Plan is to add another trailer that does not have a delay.
 
 # Overall changes
-Mouse trailer revamp, Added navbar, some styling fixes and added a lottie animation as logo.
+Some coloring and placeholder titles, subheading, cursor effects, and a navbar slide in animation.

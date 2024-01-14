@@ -11,7 +11,7 @@ const animateTrailer = (e, interacting) => {
         y = e.clientY - trailer.offsetHeight / 2;
     // Scale trailer
     const keyframes = {
-        transform: `translate(${x}px, ${y}px) scale(${interacting ? 8 : 1})`
+        transform: `translate(${x}px, ${y}px) scale(${interacting ? 4 : 1})`
     }
     // Animate
     trailer.animate(keyframes, { 
@@ -21,14 +21,16 @@ const animateTrailer = (e, interacting) => {
     });
 }
 // Determines cursor type (Play icon for vids or arrow for links)
-const getTrailerClass = type => {
+const getTrailerIcon = type => {
   switch(type) {
     case "video":
         // Get class of play icon
-        return "fa-solid fa-play";
+        return "▶";
+    case "search":
+        return "?";
     default:
         // Else is probably a link/ can become a link
-        return "fa-solid fa-arrow-up-right"; 
+        return ""; 
   }
 }
 
@@ -40,12 +42,12 @@ window.onmousemove = e => {
     const icon = document.getElementById("trailer-icon");
   
     animateTrailer(e, interacting);
-  
+    // Set dataset type of trailer based on interactable
     trailer.dataset.type = interacting ? interactable.dataset.type : "";
   
     if(interacting) {
-        icon.className = getTrailerClass(interactable.dataset.type);
+        icon.innerText = getTrailerIcon(interactable.dataset.type);
     }
 }
-// Sets trailer to visible
+// Sets trailer to visible if PC view
 trailer.style.display = "flex";
