@@ -32,8 +32,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <!-- Current location -->
-                <li class="nav-item active interactable" data-type="link">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item interactable active" data-type="link">
+                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <!-- Go to about -->
                 <li class="nav-item interactable" data-type="link">
@@ -45,19 +45,35 @@
                         Stats
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item interactable" data-type="link" href="#">Global Stats</a>
-                        <a class="dropdown-item interactable" data-type="link" href="#">Location Stats</a>
+                        <a class="dropdown-item interactable" data-type="link" href="globalstats.html">Global Stats</a>
+                        <a class="dropdown-item interactable" data-type="link" href="locationstats.html">Location Stats</a>
                         <div class="dropdown-divider"></div>
                         <!-- Local Stats -->
                         <a class="dropdown-item interactable" data-type="link" href="#">Local Stats</a>
                     </div>
                 </li>
+                <!-- Activities -->
+                <li class="nav-item dropdown interactable" data-type="link">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Activities
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <!-- Games -->
+                        <a class="dropdown-item interactable" data-type="link" href="games.html">Games</a>
+                        <!-- Sources -->
+                        <a class="dropdown-item interactable" data-type="link" href="sources.html">Sources</a>
+                    </div>
+                </li>
+                <!-- Go to donations -->
+                <li class="nav-item interactable active" data-type="link">
+                    <a class="nav-link" href="donations.html">Donations</a>
+                </li>
             </ul>
             <!-- Search Bar -->
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2 interactable" id="search-inputs" data-type="search" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2 interactable" id="searchInput" data-type="search" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0 interactable" data-type="search" type="submit">Search</button>
-          </form>
+        </form>
         </div>
     </nav>
     <!-- Main -->

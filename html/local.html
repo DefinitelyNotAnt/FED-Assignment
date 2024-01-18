@@ -3,12 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About</title>
+        <title>Local Statistics</title>
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- My styles -->
         <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/about.css">
+        <link rel="stylesheet" href="../styles/local.css">
         <!-- Lottie player -->
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     </head>
@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <!-- Logo -->
             <a class="navbar-brand" href="#">
-                <lottie-player src="../assets/logo.json" background="transparent"  speed="1" loop autoplay></lottie-player>
+                <lottie-player src="../assets/logo.json" background="transparent" speed="1" loop autoplay></lottie-player>
             </a>
             <!-- Brand -->
             <a class="navbar-brand" href="#">Stats.Ant</a>
@@ -35,21 +35,22 @@
                     <li class="nav-item interactable" data-type="link">
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
-                    <!-- Current location -->
-                    <li class="nav-item interactable active" data-type="link">
-                        <a class="nav-link" href="about.html">About <span class="sr-only">(current)</span></a>
+                    <!-- Go to about -->
+                    <li class="nav-item interactable" data-type="link">
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
                     <!-- Stats dropdown -->
-                    <li class="nav-item dropdown interactable" data-type="link">
+                    <li class="nav-item dropdown interactable active" data-type="link">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Stats
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <!-- Global Stats -->
                             <a class="dropdown-item interactable" data-type="link" href="globalstats.html">Global Stats</a>
                             <a class="dropdown-item interactable" data-type="link" href="locationstats.html">Location Stats</a>
                             <div class="dropdown-divider"></div>
-                            <!-- Local Stats -->
-                            <a class="dropdown-item interactable" data-type="link" href="local.html">Local Stats</a>
+                            <!-- Current Location -->
+                            <a class="dropdown-item interactable active" data-type="link" href="local.html">Local Stats<span class="sr-only">(current)</span></a>
                         </div>
                     </li>
                     <!-- Activities -->

@@ -70,6 +70,8 @@ body:hover > #trailer {
     display: none;
     align-items: center;
     justify-items: center;
+
+    mix-blend-mode: difference;
 }
 
 /* Ensures trailer is fully visible */

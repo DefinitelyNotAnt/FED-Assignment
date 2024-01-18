@@ -49,5 +49,13 @@ window.onmousemove = e => {
         icon.innerText = getTrailerIcon(interactable.dataset.type);
     }
 }
+$(document).ready(function() {
+    $(document).on('mousemove', function(e) {
+      $('#circularcursor').css({
+        left: e.pageX,
+        top: e.pageY
+      });
+    })
+});
 // Sets trailer to visible if PC view
 trailer.style.display = "flex";

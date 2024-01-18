@@ -50,10 +50,7 @@ About Page will talk about
 
 ## [Commit changes in detail](PatchNotes.md)
 ### Overview
-- Navbar color change
-- Slide in animations
-- Hover effect for search parts
-- Some placeholder text
+- base for other pages, cursor visibility
 ## Credits
 ++ None yet
 
