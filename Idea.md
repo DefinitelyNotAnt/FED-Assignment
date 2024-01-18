@@ -6,3 +6,7 @@ Includes:
 - Crash course on Covid-19
 - Games to understand Covid-19
 - Ways to prevent/What measures each country took to combat/...
+- Covid-19 Resource Center
+
+
+API : https://github.com/postmanlabs/covid-19-apis (Covid-19 Resource Center)
