@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Between Black Box and Camera Video Feed</title>
+    <!-- Include JSZip library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+    <style>
+        body {
+            background-color: #57932699;
+            margin: 0;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Split the screen into two columns */
+            border-right: 1px solid #000000; /* Add a black border line */
+        }
+
+        #videoContainer {
+            grid-column: 1; /* Video feed and buttons in the first column */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        video {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .black-box {
+            display: block;
+            background-color: #000000;
+            width: 400px;
+            height: 300px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .toggle-button, .screenshot-button, .download-button {
+            background-color: #ffffff;
+            padding: 10px;
+            border: 1px solid #000000;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        #screenshotGallery {
+            grid-column: 2; /* Gallery in the second column */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+            height: 80vh;
+            border-left: 1px solid #000000; /* Add a black border line */
+        }
+
+        .screenshot-thumbnail {
+            max-width: 100px;
+            border-radius: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #screenshotWindow {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="videoContainer">
+        <video id="videoElement" autoplay playsinline></video>
+    
+        <div class="black-box" id="blackBox"></div>
+
+        <button class="toggle-button" onclick="toggleContent()">Toggle Camera</button>
+        <button class="screenshot-button" onmousedown="startContinuousScreenshot()" onmouseup="stopContinuousScreenshot()" disabled>Take Screenshot</button>
+        <button class="download-button" onclick="downloadScreenshotZip()" disabled>Download Images As Zip File</button>
+    </div>
+
+    <div id="screenshotGallery">
+        <!-- Screenshot Gallery -->
+        <div id="screenshotGalleryContainer"></div>
+    </div>
+
+    <script>
+        let isVideoOn = false;
+        let videoStream;
+        let isScreenshotEnabled = false;
+        let continuousScreenshotInterval;
+        let screenshotCache = []; // Cache to store screenshot blobs
+
+        function toggleContent() {
+            const videoElement = document.getElementById('videoElement');
+            const blackBox = document.getElementById('blackBox');
+            const screenshotButton = document.querySelector('.screenshot-button');
+            const downloadButton = document.querySelector('.download-button');
+
+            if (isVideoOn) {
+                videoElement.style.display = 'none';
+                blackBox.style.display = 'block';
+            } else {
+                videoElement.style.display = 'block';
+                blackBox.style.display = 'none';
+            }
+
+            isVideoOn = !isVideoOn;
+            isScreenshotEnabled = !isScreenshotEnabled;
+            screenshotButton.disabled = !isScreenshotEnabled;
+            downloadButton.disabled = screenshotCache.length === 0;
+        }
+
+        async function startVideo() {
+            try {
+                videoStream = await navigator.mediaDevices.getUserMedia({ video: true });
+                videoElement.srcObject = videoStream;
+            } catch (error) {
+                console.error('Error accessing camera:', error);
+            }
+        }
+
+        function takeScreenshot() {
+            if (!isScreenshotEnabled) return;
+
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = videoElement.videoWidth;
+            canvas.height = videoElement.videoHeight;
+            context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+
+            // Create a Blob from the canvas data
+            const screenshotBlob = canvas.toBlob(blob => {
+                // Save the screenshot blob to the cache
+                screenshotCache.push(blob);
+
+                // Enable the download button
+                document.querySelector('.download-button').disabled = false;
+
+                // Update the screenshot gallery
+                updateScreenshotGallery();
+            }, 'image/png');
+        }
+
+        function startContinuousScreenshot() {
+            if (!isScreenshotEnabled) return;
+            continuousScreenshotInterval = setInterval(takeScreenshot, 100); // Adjust the interval as needed
+        }
+
+        function stopContinuousScreenshot() {
+            clearInterval(continuousScreenshotInterval);
+        }
+
+        function downloadScreenshotZip() {
+            if (screenshotCache.length === 0) return;
+
+            const zip = new JSZip();
+
+            screenshotCache.forEach((blob, index) => {
+                zip.file(`screenshot_${index + 1}.png`, blob);
+            });
+
+            zip.generateAsync({ type: 'blob' })
+                .then(blob => {
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = 'screenshots.zip';
+                    link.click();
+                });
+        }
+
+        function updateScreenshotGallery() {
+            const screenshotGalleryContainer = document.getElementById('screenshotGalleryContainer');
+            screenshotGalleryContainer.innerHTML = ''; // Clear existing thumbnails
+
+            // Create and append thumbnails for each screenshot in the cache
+            screenshotCache.forEach((blob, index) => {
+                const thumbnail = document.createElement('img');
+                thumbnail.src = URL.createObjectURL(blob);
+                thumbnail.alt = `Screenshot ${index + 1}`;
+                thumbnail.className = 'screenshot-thumbnail';
+                thumbnail.onclick = () => showScreenshot(index);
+                screenshotGalleryContainer.appendChild(thumbnail);
+            });
+
+            // Show the gallery when there are screenshots
+            document.getElementById('screenshotGallery').style.display = 'flex';
+        }
+
+        function showScreenshot(index) {
+            const screenshotWindow = document.getElementById('screenshotWindow');
+            const screenshotImage = document.createElement('img');
+            screenshotImage.src = URL.createObjectURL(screenshotCache[index]);
+            screenshotImage.alt = `Screenshot ${index + 1}`;
+            screenshotImage.style.maxWidth = '100%';
+            screenshotWindow.innerHTML = ''; // Clear existing content
+            screenshotWindow.appendChild(screenshotImage);
+            screenshotWindow.style.display = 'block';
+        }
+
+        function closeScreenshotGallery() {
+            document.getElementById('screenshotGallery').style.display = 'none';
+        }
+
+        // Start with the video hidden
+        toggleContent();
+        startVideo();
+    </script>
+</body>
+</html>

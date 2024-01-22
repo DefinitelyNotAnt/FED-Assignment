@@ -1,0 +1,48 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+/* Body overflow */
+body {
+  overflow: hidden;
+}
+/* Scoring */
+h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%,-50%);
+}
+h3{
+    color: white;
+}
+/* Description */
+.description{
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    color: #a7a7a7;
+    transform: translate(-50%,-50%);
+}
+/* Bubble */
+.bubble {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: linear 1s, transform 0.2s;
+}
+
+.bubble:hover {
+  transform: scale(1.7);
+}
+
+.bubble--bust {
+  transform: scale(1.8);
+}
