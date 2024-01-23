@@ -65,7 +65,7 @@ body:hover > #trailer {
     
     pointer-events: none;
     opacity: 0;
-    transition: opacity 500ms ease;
+    transition: opacity 5ms ease;
     /* Ensures trailer doesn't load when extraft.js doesnt load */
     display: none;
     align-items: center;
