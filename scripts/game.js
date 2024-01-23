@@ -35,7 +35,7 @@ function virusGame(){
         this.bubbleSpan.style.left = this.posX + "px";
 
         // setting height and width of the bubble
-        this.height = 100;
+        this.height = 150;
         this.width = this.height;
 
         this.bubbleEnd.call(this.bubbleSpan, this.randomNumber(7500, 10000));
@@ -45,6 +45,7 @@ function virusGame(){
     handleNewBubble() {
         this.bubbleSpan = document.createElement("span");
         this.bubbleSpan.classList.add("bubble");
+        this.bubbleSpan.innerText = "corn"
         root.append(this.bubbleSpan);
         this.handlePosition();
         totalBubbles += 1;
@@ -73,7 +74,7 @@ function virusGame(){
         this.bubbleSpan.style.top = this.posY + "px";
         this.bubbleSpan.style.left = this.posX + "px";
 
-        const randomSec = this.randomNumber(500, 100);
+        const randomSec = this.randomNumber(750, 500);
         setTimeout(this.handlePosition.bind(this), randomSec); // calling for re-position of bubble
     }
 
@@ -97,17 +98,14 @@ function virusGame(){
     }
     }
     new Bubble()
-    new Bubble()
-    new Bubble()
-    new Bubble()
     // creating many bubble instance
-    var speed = 500 - (root.childElementCount * 10);
+    var speed = 3000 - (root.childElementCount * 5);
     var loopThis = function () {
         requestAnimationFrame(() => new Bubble());
         scoreDisplay.innerText = "Score = "+score;
         document.getElementById("currentCount").innerText = "Number of bubbles: "+root.childElementCount;
         document.getElementById("totalBubbles").innerText = "Total bubbles so far: "+totalBubbles;
-        speed = 500 - (root.childElementCount * 10);
+        speed = 2000 - (root.childElementCount * 5);
         // When it reaches 50
         if (root.childElementCount >= 50){
             console.log("break");

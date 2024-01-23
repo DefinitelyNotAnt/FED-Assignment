@@ -33,9 +33,13 @@ h3{
 /* Bubble */
 .bubble {
   position: absolute;
+  display: flex;  
   top: 0;
   left: 0;
   border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
   transition: linear 1s, transform 0.2s;
 }
 
