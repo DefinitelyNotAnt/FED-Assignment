@@ -12,9 +12,10 @@ This website allows you to view general info about Covid-19, view statistics abo
     - [ ] Base theme
         - [x] Color theme
         - [ ] Design theme
-    - [ ] Create wireframe
+    - [x] Create wireframe
     - [ ] Some implementation ideas
-    - [ ] Wireframe 2 for mobile
+    - [x] Wireframe 2 for mobile
+    - [ ] Confirm Wireframe
 > [!NOTE]
 > Full design might conflict with wireframe
 - [x] Initialise all base html files
@@ -43,6 +44,9 @@ This website allows you to view general info about Covid-19, view statistics abo
 - [ ] Extra features
     - [x] Mouse trailer
     - [ ] Some small minigames
+        - [x] Idea
+        - [ ] Implementation
+        - [ ] User Experience
 
 ## Features
 Main home page that will show a quick overview. Most of the contents are meant to be in other pages.

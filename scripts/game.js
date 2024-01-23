@@ -35,7 +35,7 @@ function virusGame(){
         this.bubbleSpan.style.left = this.posX + "px";
 
         // setting height and width of the bubble
-        this.height = 150;
+        this.height = 200;
         this.width = this.height;
 
         this.bubbleEnd.call(this.bubbleSpan, this.randomNumber(7500, 10000));

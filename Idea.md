@@ -10,3 +10,4 @@ Includes:
 
 
 API : https://github.com/postmanlabs/covid-19-apis (Covid-19 Resource Center)
+API : https://github.com/44B/covid-metrics (Covid Heatmap)
