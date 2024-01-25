@@ -16,8 +16,8 @@
       #viewDiv {
         padding: 0;
         margin: 0;
-        height: 50%;
-        width: 50%;
+        height: 100%;
+        width: 100%;
       }
     </style>
 
@@ -44,7 +44,7 @@
 
         layer.renderer = {
           type: "heatmap",
-          colorStops: [
+          colorStops: [/*
             { color: colors[0], ratio: 0 },
             { color: colors[1], ratio: 0.083 },
             { color: colors[2], ratio: 0.166 },
@@ -57,7 +57,7 @@
             { color: colors[9], ratio: 0.747 },
             { color: colors[10], ratio: 0.83 },
             { color: colors[11], ratio: 0.913 },
-            { color: colors[12], ratio: 1 }
+            { color: colors[12], ratio: 1 }*/
           ],
           radius: 5,
           maxDensity: 0.04625,
@@ -81,7 +81,7 @@
           constraints: {
             snapToZoom: false,
             minScale: 4622324,
-            maxScale: 9999999
+            maxScale: 99999999
           },
           map
         });
