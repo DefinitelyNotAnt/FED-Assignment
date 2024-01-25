@@ -4,3 +4,10 @@ html{
 body{
     color:white;
 }
+.container{
+    display:flex;
+    justify-content: center;
+}
+.result-container{
+   width:75%; 
+}
