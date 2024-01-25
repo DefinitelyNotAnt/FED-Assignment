@@ -1,5 +1,7 @@
 # Patch Notes
 
+##Added Api Implementation
+
 ## Added Game 1
 ## Virus Game
 ### Concept
@@ -35,3 +37,4 @@ Should add some SFX like a sound on click, or on generation of bubbles. Maybe ev
 
 # Overall changes
 Added a game for the website.
+Added APIs for data on Covid-19 cases.

@@ -3,7 +3,7 @@
 Assignment for Front-End Development
 ## COVID-19 Website
 A website meant for information related to Covid-19, and its statistics.
-This website implements [this]() API, [this]() API and [this]() API.
+This website implements [this](https://api.api-ninjas.com/v1/trivia?category=1) API, [this]() API and [this]() API.
 This website allows you to view general info about Covid-19, view statistics about it, track progression for a given location, deaths, and recoveries.
 ## Task List
 - [ ] Finish Task list
@@ -25,8 +25,8 @@ This website allows you to view general info about Covid-19, view statistics abo
 - [ ] Get API for data
     - [ ] A way to process the data
     - [ ] API for disease
-        - [ ] Find suitable API
-        - [ ] Get API Key and receive data
+        - [x] Find suitable API
+        - [x] Get API Key and receive data
         - [ ] Store the data somewhere
     - [ ] API for charts
         - [ ] Find suitable API
