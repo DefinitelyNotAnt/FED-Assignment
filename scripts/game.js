@@ -25,7 +25,7 @@ function virusGame(){
     constructor() {
         this.bubbleSpan = undefined;
         this.handleNewBubble();
-        this.color = "red";
+        this.color = this.randomGen();
 
         // Generates bubble in random location
         this.posY = this.randomNumber(innerHeight - 20, 20);
@@ -51,11 +51,8 @@ function virusGame(){
         totalBubbles += 1;
         // On click end bubble
         this.bubbleSpan.addEventListener("click", this.bubbleEnd);
-        let fired = false;
         this.bubbleSpan.addEventListener("click", function(){
             score+=1;
-            fired = true;
-
         }, );
     }
 
@@ -81,6 +78,13 @@ function virusGame(){
     randomNumber(max, min) {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
+    randomGen(){
+        var color = [
+            "red",
+            "green"
+        ]
+        return color[Math.floor(Math.random()*2)];
+    }
 
     bubbleEnd(removingTime = 0) {
         setTimeout(
@@ -92,8 +96,11 @@ function virusGame(){
         setTimeout(() => {
         requestAnimationFrame(() => this.remove());
         }, (removingTime+50));
-        if (removingTime==0){
+        if (removingTime==0 && this.color == "green"){
             score+=1;
+        }
+        else if (removingTime == 0 && this.color == "red"){
+            score -= 1;
         }
     }
     }
