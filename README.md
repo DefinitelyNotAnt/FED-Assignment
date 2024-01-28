@@ -31,19 +31,42 @@ https://pixso.net/app/editor/j8jiKUibePBX1AMz0eL8ig?icon_type=1&page-id=0%3A1
 
 ## Testing
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+Bugs across all pages:
 
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
+1. Mouse trailer:
+    - On page load, if mouse is not moved the trailer will not move to mouse
+    - Mix-blend mode incompatible with IE
 
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+2. Dark mode light mode:
+    - Open page across multiple tabs
+    - Change mode
+    - Page style will not update the css to fit the mode until refresh
+    - Local storage does reflect the change but the styling change will not be called
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+Page related bugs:
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+1. Home Page:
+    - Bring mouse cursor inside the google maps embed
+    - Trailer will stop at the last location it was at before entering the embed
+    - Trailer will still follow if the cursor exits the embed
+    Bug 2:
+    - Click the "View larger map" on the embed
+    - Bring to a enw tab of google maps, which is unintended
+
+2. Local Stats
+    - Hovering over the chart will cause slight lag
+    - This is due to there being many points in the data, causing every small movement to try and tooltip multiple
+    - This lag is also caused when spamming the visibility for the chart
+    - Probably hard to fix as decimation does not seem to work
+
+3. Activities > Games
+    Bug 1:
+    - Text seems to display at full opacity contrary to the rest of the bubble
+    Bug 2:
+    - Load the game window.
+    - Minimise the tab / Alt+Tab into another window / Change windows
+    - Return to the page
+    - The bubbles will spawn all at once based on how long you have been away from the tab, based on the speed you last left.
 
 ## [Changes](PatchNotes.md) 
 Changes are usually documented [here](PatchNotes.md).

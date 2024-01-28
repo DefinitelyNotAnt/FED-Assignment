@@ -5,7 +5,14 @@ body {
     background-color: white;
     height: 100vh;    
     margin: 0px;  
-  }
+}
+.dark{
+    background-color: black;
+    color: white;
+}
+.dark #trailer #trailer-icon{
+    color: black;
+}
 /* ----------------------------- */
 /* ------------Navbar----------- */
 /* ----------------------------- */

@@ -1,3 +1,36 @@
+/////////////////////
+// Light/Dark Mode //
+/////////////////////
+// Set to light on first load
+if (localStorage.mode == undefined){
+    localStorage.mode = "Light";
+};
+addMode();
+// Change modes
+function ModeSwitch(){
+    if (localStorage.mode == "Light"){
+        localStorage.mode = "Dark";
+    }
+    else if (localStorage.mode == "Dark"){
+        localStorage.mode = "Light";
+    }
+    // In case of bugs / tinkering
+    else{
+        localStorage.mode = "Dark";
+    }
+    // Changes to mode
+    addMode()
+};
+// Change body class to mode
+function addMode(){
+    if (localStorage.mode == "Light"){
+        document.body.classList = "light";
+    }
+    else{
+        document.body.classList = "dark";
+    }
+}
+
 
 /////////////////////
 /// Mouse Trailer ///

@@ -19,6 +19,9 @@ h1{
     color: white;
     transform: translate(-50%,-50%);
 }
+.light h1, .light h3{
+  color: black;
+}
 h3{
     color: white;
 }
@@ -40,7 +43,7 @@ h3{
   align-items: center;
   justify-content: center;
   font-size: larger;
-  transition: linear 1s, transform 0.2s;
+  transition: linear 1s, transform 0.2s,opacity 1s;
 }
 
 .bubble:hover {
