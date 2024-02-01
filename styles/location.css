@@ -1,0 +1,22 @@
+.chart{
+    height: 50vh;
+    width: 60vw;
+}
+#row1{
+    padding-top: 5vh;
+    display: flex;
+    flex-direction: column;
+}
+.sectionchunk{
+    display: flex;
+}
+#row1 p{
+    padding: 15px 5vw 15px 5vw;
+}
+h1{
+    text-align: center;
+}
+#row1 lottie-player{
+    width: 30vw;
+    height: 50vh;
+}

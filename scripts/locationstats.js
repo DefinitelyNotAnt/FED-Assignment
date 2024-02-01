@@ -1,51 +1,148 @@
-// about.js
-$(document).ready(function () {
-    const apiKey = "CwcyKOR5lUGs6RTfUXNeHw==AfTraDK9OjymV4LP";
-    var country = prompt("Enter country");
+//////////////////////////////
+/////////Data to Chart////////
+//////////////////////////////
 
+// On document ready
+$(document).ready(function () {
+    // API KEY
+    const apiKey = "CwcyKOR5lUGs6RTfUXNeHw==AfTraDK9OjymV4LP";
+    // Get country
+  
+    // This section is for choosing country
+    var country = prompt("Enter country");
+    while (country == ""){
+      country = prompt("Country name cannot be empty");
+    }
+    var countryDisplay = country[0].toUpperCase() + country.slice(1);
+    console.log(countryDisplay);
+    const displayNameCountry = document.getElementById("countryName");
+    displayNameCountry.innerText = countryDisplay +" Statistics";
+    // Request the country data
     $.ajax({
         method: 'GET',
         url: 'https://api.api-ninjas.com/v1/covid19?country=' + country,
         headers: { 'X-Api-Key': apiKey },
         contentType: 'application/json',
+        // On success
         success: function (result) {
             console.log(result);
-
-            // Display the result in a table
+            // Check if the return is valid
             if (result && Array.isArray(result) && result.length > 0) {
-                var data = result[0]; // Assuming the data is the first element of the array
-
-                if (data && data.cases) {
-                    var tableHtml = '<table class="table">';
-                    tableHtml += '<thead><tr><th>Date</th><th>Total Cases</th><th>New Cases</th></tr></thead>';
-                    tableHtml += '<tbody>';
-
-                    // Loop through the dates and add rows to the table
-                    for (var date in data.cases) {
-                        if (data.cases.hasOwnProperty(date)) {
-                            var dailyCases = data.cases[date];
-                            tableHtml += '<tr><td>' + date + '</td><td>' + dailyCases.total + '</td><td>' + dailyCases.new + '</td></tr>';
-                        }
-                    }
-
-                    tableHtml += '</tbody></table>';
-
-                    // Append the table to the result-container div
-                    
-                    $('.result-container').html(tableHtml);
-                } else {
-                    // Display a message if there is no cases data
-                    $('.result-container').html('<p>No cases data available</p>');
+                //  Get the data of cases
+                //  Original format: 
+                //  {
+                //    0: {country: 'Singapore', region: '', cases: {…}}
+                //    1: { ## Ignore this part }
+                //  }
+                //  To access cases data enter result[0]:
+                //  {country: 'Singapore', region: '', cases: {…}}
+                //  data is in cases, which would be accessed by result[0]["cases"]
+                //  datatable is now { {$"{date}": {total: $"{total}", new: $"{new}"}}, },{...}... }
+                datatable = result[0]["cases"];
+                // Creating new array of dicts in data
+                var data = [];
+                // Loop through every date in the data
+                for (let entries in datatable){
+                  // Create new dict based on the data
+                  var dict = {
+                    // Date: date
+                    date: entries,
+                    // new: New cases
+                    new: datatable[entries]["new"]
+                  }
+                  data.push(dict);
                 }
-            } else {
+                console.log(data);
+              
+                new Chart(
+                  document.getElementById('myChart'),
+                  {
+                    // Line chart
+                    type: 'line',
+                    options: {
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      plugins: {
+                        tooltip: {
+                          // Hides tooltip on hover over any data at 0
+                          filter: (label) => {
+                            if (typeof (label.raw) === "number")
+                              return label.raw > 0
+                            else return true
+                          }
+                        }
+                      }
+                    },
+                    data: {
+                      // X axis: Date
+                      labels: data.map(row => row.date),
+                      datasets: [
+                        {
+                          label: 'New Cases',
+                          // Y axis: New cases
+                          data: data.map(row => row.new),
+                          fill: true,
+                          backgroundColor: "red",
+                        }
+                      ],
+                    }
+                  }
+                );
+            }
+            else {
                 // Display a message if there is no data
-                $('.result-container').html('<p>No data available</p>');
+                var displaymessage = document.getElementById("errormessages");
+                displaymessage.innerText = 'No data available.';
+                document.body.appendChild(displaymessage);
             }
         },
         error: function ajaxError(jqXHR) {
             console.error('Error: ', jqXHR.responseText);
             // Display the error in the result-container div
-            $('.result-container').html('<p>Error: ' + jqXHR.responseText + '</p>');
+            var displaymessage = document.getElementById("errormessages");
+            displaymessage.innerText = jqXHR.responseText;
+            document.body.appendChild(displaymessage);
         }
     });
-});
+  });
+  
+  // Fit canvas to container
+  var canvas = document.querySelector('canvas');
+  fitToContainer(canvas);
+  
+  function fitToContainer(canvas){
+    // Make it visually fill the positioned parent
+    canvas.style.width ='100%';
+    canvas.style.height='100%';
+    // ...then set the internal size to match
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  // (async function() {
+  //   const data = [
+  //     { year: 2010, cases: 10 },
+  //     { year: 2011, cases: 20 },
+  //     { year: 2012, cases: 15 },
+  //     { year: 2013, cases: 25 },
+  //     { year: 2014, cases: 22 },
+  //     { year: 2015, cases: 30 },
+  //     { year: 2016, cases: 28 },
+  //   ];
+  
+  //   new Chart(
+  //     document.getElementById('myChart'),
+  //     {
+  //       type: 'line',
+  //       data: {
+  //         labels: data.map(row => row.year),
+  //         datasets: [
+  //           {
+  //             label: 'Cases by day',
+  //             data: data.map(row => row.cases)
+  //           }
+  //         ]
+  //       }
+  //     }
+  //   );
+  // })();
+  
