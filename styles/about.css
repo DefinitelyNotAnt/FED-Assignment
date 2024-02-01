@@ -1,0 +1,35 @@
+section{
+    position: relative;
+    height: 80vh;
+    background-color: rgba(12,12,12,0.2);
+    padding: 25vh 0 2.5vh 2.5vw;
+    z-index: -1;
+}
+.dark section{
+    background-color: rgba(225,225,225,0.2);
+}
+#medicalhead{
+    height: 75vh;
+    background-color: rgba(25,25,25,0.2);
+}
+.dark #medicalhead{
+    background-color: rgba(200,200,200,0.2);
+}
+#contentMenu{
+    padding: 15px 15px 15px 15px;
+    background-color: #a7a7a7;
+    color: black;
+    position: fixed;
+    bottom: 5vh;
+    right: 5vw;
+}
+
+/* Left slide */
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

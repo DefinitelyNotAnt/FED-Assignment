@@ -16,26 +16,26 @@ body {
 /* ----------------------------- */
 /* ------------Navbar----------- */
 /* ----------------------------- */
-.navbar{
+#mainNav{
     padding: 0.75rem;
     animation: 1s ease-out 0s 1 slideInFromTop;
 }
-.navbar .navbar-brand{
+#mainNav .navbar-brand{
     color: red;
 }
-.navbar .navbar-brand:hover{
+#mainNav .navbar-brand:hover{
     color: red;
 }
-.navbar .nav-item{
+#mainNav .nav-item{
     font-weight: bold;
 }
-.navbar .nav-item{
-    padding-left: 5vw;
+#mainNav .nav-item{
+    padding-left: 3vw;
 }
 /* ----------------------------- */
 /* ----------Lottie Logo-------- */
 /* ----------------------------- */
-.navbar lottie-player{
+#mainNav lottie-player{
     width: 3rem;
     height: 3rem;
 }
