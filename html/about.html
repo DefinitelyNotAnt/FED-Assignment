@@ -37,11 +37,11 @@
                     </li>
                     <!-- Current location -->
                     <li class="nav-item interactable active" data-type="link">
-                        <a class="nav-link" href="about.html">About <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
                     <!-- Stats dropdown -->
                     <li class="nav-item dropdown interactable" data-type="link">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             Stats
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -54,7 +54,7 @@
                     </li>
                     <!-- Activities -->
                     <li class="nav-item dropdown interactable" data-type="link">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             Activities
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -83,12 +83,13 @@
         <!-- Sidebar -->
         <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasLabel">Content menu</h5>
+              <h2 class="offcanvas-title" id="offcanvasLabel">Content menu</h2>
               <a type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></a>
             </div>
             <div class="offcanvas-body">
                 <a class="nav-link" href="#abouthead">About</a>
                 <a class="nav-link" href="#medicalhead">Medical</a>
+                <a class="nav-link" href="#symptomhead">Symptoms</a>
             </div>
         </div>
         <button class="nav-link btn btn-outline-primary" id="contentMenu">Content</button>
@@ -100,6 +101,10 @@
         <section id="medicalhead">
             <h1 class="headliner display-2">Medical data so far</h1>
             <h2>man</h2>
+        </section>
+        <section id="symptomhead">
+            <h1 class="headliner display-2">Symptoms</h1>
+            <h2>Covid-19 common symptoms</h2>
         </section>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

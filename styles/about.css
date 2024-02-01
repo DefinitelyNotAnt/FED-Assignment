@@ -23,7 +23,15 @@ section{
     bottom: 5vh;
     right: 5vw;
 }
-
+/* Off canvas */
+.offcanvas{
+    color: black;
+}
+.offcanvas .nav-link{
+    color: #a7a7a7;
+    padding: 15px 15px 15px 15px;
+    font-size: larger;
+}
 /* Left slide */
 @keyframes slideInFromRight {
     0% {
