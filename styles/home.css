@@ -1,9 +1,7 @@
 h1{
-    color: white;
     font-size: 10vw;
 }
 h2{
-    color: white;
     font-size: 7.5vw;
 }
 html,
@@ -20,7 +18,6 @@ html,
   justify-content: center;
 }
 .map-container{  
-  width:75%;
   display:flex;
   justify-content: center;
 }
