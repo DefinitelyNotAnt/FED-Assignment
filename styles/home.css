@@ -13,4 +13,14 @@ html,
         margin: 0;
         height: 100%;
         width: 100%;
-      }
+}
+.title-container{  
+  text-align: center;
+  display:flex;
+  justify-content: center;
+}
+.map-container{  
+  width:75%;
+  display:flex;
+  justify-content: center;
+}

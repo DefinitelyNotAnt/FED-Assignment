@@ -11,3 +11,5 @@ Includes:
 
 API : https://github.com/postmanlabs/covid-19-apis (Covid-19 Resource Center)
 API : https://github.com/44B/covid-metrics (Covid Heatmap)
+https://covid19api.com/ (Covid 19 spread, infection and recovery)
+https://npgeo-corona-npgeo-de.hub.arcgis.com/(Covid-19 Datenhub)
