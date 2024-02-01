@@ -1,36 +1,102 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>Heatmap Example</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization"></script>
-  </head>
-  <body>
-    <div id="map" style="height: 500px; width: 100%;"></div>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+
+    <title>
+      Fatal car crashes
+    </title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/dark/main.css" />
+    <script src="https://js.arcgis.com/4.28/"></script>
 
     <script>
-      function initMap() {
-        // Create a map centered at a specific location
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: { lat: 37.7749, lng: -122.4194 },
-          zoom: 13
+      require([
+        "esri/WebMap",
+        "esri/layers/FeatureLayer",
+        "esri/views/MapView",
+        "esri/widgets/Legend"
+      ], (WebMap, FeatureLayer, MapView, Legend) => {
+
+        const url = "https://services1.arcgis.com/4yjifSiIG17X0gW4/ArcGIS/rest/services/COVID_Trends_View/FeatureServer";
+
+        const layer = new FeatureLayer({
+          title: "Covid-19 cases",
+          url
         });
 
-        // Sample data for heatmap
-        var heatmapData = [
-          new google.maps.LatLng(37.7749, -122.4194),
-          // Add more LatLng objects as needed
-        ];
 
-        // Create a heatmap layer
-        var heatmap = new google.maps.visualization.HeatmapLayer({
-          data: heatmapData,
-          map: map
+        const colors = ["rgba(115, 0, 115, 0)", "#820082", "#910091", "#a000a0", "#af00af", "#c300c3", "#d700d7", "#eb00eb", "#ff00ff", "#ff58a0", "#ff896b", "#ffb935", "#ffea00"];
+
+        layer.renderer = {
+          type: "heatmap",
+          colorStops: [
+            { color: colors[0], ratio: 0 },
+            { color: colors[1], ratio: 0.083 },
+            { color: colors[2], ratio: 0.166 },
+            { color: colors[3], ratio: 0.249 },
+            { color: colors[4], ratio: 0.332 },
+            { color: colors[5], ratio: 0.415 },
+            { color: colors[6], ratio: 0.498 },
+            { color: colors[7], ratio: 0.581 },
+            { color: colors[8], ratio: 0.664 },
+            { color: colors[9], ratio: 0.747 },
+            { color: colors[10], ratio: 0.83 },
+            { color: colors[11], ratio: 0.913 },
+            { color: colors[12], ratio: 1 }
+          ],
+          radius: 18,
+          maxDensity: 0.04625,
+          minDensity: 0
+        };
+
+
+        const map = new WebMap({
+          basemap: {
+            portalItem: {
+              id: "466f3f43c231453c938c6776777b89e2"
+            }
+          },
+          layers: [ layer ]
         });
-      }
-    </script>
 
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+        const view = new MapView({
+          container: "viewDiv",
+          center: [-117.79621, 33.91474],
+          scale: 1155581,
+          constraints: {
+            snapToZoom: false,
+            minScale: 99999999,
+            maxScale: 10000
+          },
+          map
+        });
+
+        view.ui.add(
+          new Legend({
+            view
+          }),
+        "top-right");
+
+      });
     </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
   </body>
 </html>
