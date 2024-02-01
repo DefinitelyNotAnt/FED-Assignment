@@ -9,6 +9,14 @@ Includes:
 - Covid-19 Resource Center
 
 
+TODO:
+- Loading pages animation
+- Chart font color change on dark mode
+- Search bar ( eg. Symptoms: About)
+- Heatmap
+- Set animations for dark mode to light, vice versa.
+
+
 API : https://github.com/postmanlabs/covid-19-apis (Covid-19 Resource Center)
 API : https://github.com/44B/covid-metrics (Covid Heatmap)
 https://covid19api.com/ (Covid 19 spread, infection and recovery)
