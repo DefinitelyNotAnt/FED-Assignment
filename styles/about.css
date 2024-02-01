@@ -23,7 +23,14 @@ section{
     bottom: 5vh;
     right: 5vw;
 }
-
+.offcanvas .offcanvas-body .nav-link{
+    padding: 15px 0 15px 0;
+}
+/* Off canva dark */
+.dark .offcanvas{
+    background-color: #505050;
+    color: white;
+}
 /* Left slide */
 @keyframes slideInFromRight {
     0% {

@@ -25,11 +25,11 @@
             </a>
             <!-- Brand -->
             <a class="navbar-brand" href="#">Stats.Ant</a>
-            <button class="navbar-toggler interactable" data-type="link" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler interactable" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- Make everything else collapsable for mobile -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <!-- Go to home -->
                     <li class="nav-item interactable" data-type="link">
@@ -74,9 +74,9 @@
                     </li>
                 </ul>
                 <!-- Search Bar -->
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2 interactable" id="searchInput" data-type="search" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0 interactable" data-type="search" type="submit">Search</button>
+                <form class="d-flex bootstrap5fix">
+                    <input class="form-control me-2 interactable" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success interactable" type="submit">Search</button>
                 </form>
             </div>
         </nav>
