@@ -31,6 +31,10 @@ section{
     background-color: #505050;
     color: white;
 }
+#dark-light-mode{
+    transform: translateY(-14%);
+}
+
 /* Left slide */
 @keyframes slideInFromRight {
     0% {
