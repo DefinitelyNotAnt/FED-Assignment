@@ -2,6 +2,56 @@
 //////////// Game ////////////
 //////////////////////////////
 // Function so it can be rerun multiple times
+
+//grab data
+const APIKEY = '65c1d2fd72864d6ddfdcbf05';
+const link = "https://pandemic-b7ef.restdb.io/rest/pandemic";
+const trueStatements = [];
+const falseStatements = [];
+
+// Using jQuery AJAX
+var ajaxSettings = {
+  "async": true,
+  "crossDomain": true,
+  "url": link,
+  "method": "GET",
+  "headers": {
+    "content-type": "application/json",
+    "x-apikey": APIKEY,
+    "cache-control": "no-cache"
+  }
+};
+
+// Using Fetch API
+const Apimethod = document.getElementById("api");
+function getStatements() {
+  let fetchSettings = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "x-apikey": APIKEY,
+      "Cache-Control": "no-cache"
+    },
+  };
+
+  fetch(link, fetchSettings)
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(user => {
+        if (user.Boolean) {
+          trueStatements.push(user.Statement);
+        } else {
+          falseStatements.push(user.Statement);
+        }
+      });
+      
+    })
+    .catch(error => console.log(error));
+}
+
+// Call the function to fetch data using the Fetch API
+getStatements();
+
 function virusGame(){
     const lastHighScore = parseFloat(localStorage.score);
     document.getElementById("highscore").innerText = "High score: "+localStorage.score;
@@ -45,15 +95,24 @@ function virusGame(){
     handleNewBubble() {
         this.bubbleSpan = document.createElement("span");
         this.bubbleSpan.classList.add("bubble");
-        this.bubbleSpan.innerText = "corn"
+        // Generate a random number (0 or 1) to pick a list
+        const randomIndex = Math.floor(Math.random() * 2);
+        // Pick the list based on the random number
+        const selectedList = randomIndex === 0 ? trueStatements : falseStatements;
+        const index = Math.floor(Math.random() * selectedList.length);
+        const randomtext=selectedList[index];
+        console.log(randomtext);
+        this.bubbleSpan.innerText = randomtext;
         root.append(this.bubbleSpan);
         this.handlePosition();
-        totalBubbles += 1;
+        totalBubbles += 1;        
+
         // On click end bubble
         this.bubbleSpan.addEventListener("click", this.bubbleEnd);
         this.bubbleSpan.addEventListener("click", function(){
-            score+=1;
-        }, );
+            if (randomtext in trueStatements){score+=1;}                
+            else if(randomtext in falseStatements){score-=1;}                
+        });
     }
 
     handlePosition() {
@@ -142,3 +201,4 @@ function virusGame(){
     setTimeout(loopThis,speed);
 }
 virusGame();
+
