@@ -124,3 +124,8 @@ body:hover > #trailer {
         transform: translateX(0);
     }
 }
+
+/* For Footer background */
+.footer-container{
+    background-color: lightblue;
+  }
