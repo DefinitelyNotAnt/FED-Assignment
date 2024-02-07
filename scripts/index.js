@@ -37,3 +37,8 @@ function showSlides(n) {
 slideInterval = setInterval(function() {
     plusSlides(1);
 }, 5000); // 5000 milliseconds (5 seconds)
+
+function redirectToPage() {
+  // Add your redirection logic here
+  window.location.href = "map.html";
+}

@@ -85,22 +85,19 @@
         </div>
     </nav>
     <!-- Main -->
+
     <slideshow>
         <div class="slideshow-container">
             <div class="mySlides">
-                <img src="../assets/redcross_slideshow1.jpg" alt="Slide 1">
+                <img src="../assets/redcross_slideshow1.jpg" width="100%" height="300px" alt="Slide 1">
             </div>
         
             <div class="mySlides">
-                <img src="../assets/slideshow2.jpg" alt="Slide 2">
+                <img src="../assets/slideshow2.jpg" width="100%" height="300px" alt="Slide 2">
             </div>
         
             <div class="mySlides">
-                <img src="../assets/slideshow3.jpg" alt="Slide 3">
-            </div>
-
-            <div class="mySlides">
-                <img src="../assets/virus-background.png" alt="Slide 3">
+                <img src="../assets/slideshow3.jpg" width="100%" height="300px" alt="Slide 3">
             </div>
         
             <!-- Add more slides as needed -->
@@ -110,25 +107,91 @@
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>        
     </slideshow>
-    
-    <!-- <div class="map-container">
-        <p class = "map-elements"> HELLO </p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d510562.31414474593!2d103.51454872321202!3d1.3146649957390804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da11238a8b9375%3A0x887869cf52abf5c4!2sSingapore!5e0!3m2!1sen!2ssg!4v1706171408981!5m2!1sen!2ssg" height = "600px" width="100%" style="border:0;" allowfullscreen="no" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <p class = "map-elements"> INSERT ELEMENTS </p>
-    </div> -->
+    <div>
+        <h1 class="home-title">
+            Welcome to CAPE!
+        </h1>
+    </div>
+    <div class="row-container">
+        <div class="row">
+          <!-- Content for the first row, first column goes here -->
+          <div class="iconletter">
+            <div class="container-letter">       
+                <span class="glamorous-icon1">C</span><span class="marginup">ontagion</span>
+            </div>
+            <div class="container-row">
+                <p>Hello</p>
+            </div>  
+          </div>
+        </div>
+        <div class="row">
+          <!-- Content for the first row, second column goes here -->
+          <div class="iconletter">
+            <div class="container-letter">       
+                <span class="glamorous-icon2">A</span><span class="marginup">wareness</span>
+            </div>
+            <div class="container-row">
+                <p>Hello</p>
+            </div>            
+          </div>
+        </div>
+        <div class="row">
+          <!-- Content for the second row, first column goes here -->
+          <div class="iconletter">
+            <div class="container-letter">                     
+                <span class="glamorous-icon3">P</span><span class="marginup">revention</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Content for the second row, second column goes here -->
+          <div class="iconletter">
+            <div class="container-letter">       
+                <span class="glamorous-icon4">E</span><span class="marginup">mergency</span>
+            </div>            
+          </div>
+        </div>
+    </div>
 
-
-    <article>
-        <div id="viewDiv"></div>
-    </article>
-
+    <div class="map-container">
+        <div class="map-elements">
+            <div class="column">
+              <!-- Content for the first column goes here -->
+              <img src="../assets/virus.png" width="200px" height="100px">
+            </div>
+            <div class="column">
+              <!-- Content for the second column goes here -->
+              Column 2 Content
+            </div>
+        </div>
+        <div class = "map-elements">
+            <div class="image-container">
+                <div class="overlay"></div>
+                <img class="blurable-image" src="../assets/heatmap.png" width="500px" onclick="redirectToPage()">
+                <div class="hover-element">
+                  <p>View Full Heatmap</p>
+                </div>
+              </div>              
+        </div>
+        <div class="map-elements">
+            <div class="column">
+              <!-- Content for the first column goes here -->
+              <img src="../assets/virus.png" width="200px" height="100px">
+            </div>
+            <div class="column">
+              <!-- Content for the second column goes here -->
+              Column 2 Content
+            </div>
+        </div>
+    </div>
+          
     <!--Footer-->
     <div class="footer-container">
-            <div class="container">
+        <div class="container">
                 <footer class="py-5">
                   <div class="row">
                     <div class="col-6 col-md-2 mb-3">
-                      <h5>Section</h5>
+                      <h5>Information</h5>
                       <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
@@ -139,7 +202,7 @@
                     </div>
               
                     <div class="col-6 col-md-2 mb-3">
-                      <h5>Section</h5>
+                      <h5>Statistics</h5>
                       <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
@@ -150,7 +213,7 @@
                     </div>
               
                     <div class="col-6 col-md-2 mb-3">
-                      <h5>Section</h5>
+                      <h5>Activities</h5>
                       <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
@@ -172,7 +235,7 @@
                     </div>
               
                   <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                    <p>© 2023 Company, Inc. All rights reserved.</p>
+                    <p>© 2023 CAPE, Inc. All rights reserved.</p>
                     <ul class="list-unstyled d-flex">
                       <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
                       <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
@@ -180,7 +243,7 @@
                     </ul>
                   </div>
                 </footer>
-            </div>    
+        </div>    
     </div>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -189,7 +252,7 @@
     <script src="../scripts/mainjs.js"></script>
     <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/dark/main.css" />
     <script src="https://js.arcgis.com/4.28/"></script>
-    <script src="../scripts/mapapi.js"></script>
+    <!-- <script src="../scripts/mapapi.js"></script> -->
     <script async src="../scripts/extraft.js"></script>
 </body>
 </html>
