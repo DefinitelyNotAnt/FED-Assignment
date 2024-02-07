@@ -13,12 +13,16 @@ body {
 .dark #trailer #trailer-icon{
     color: black;
 }
+*{
+    transition: 0.2s;
+}
 /* ----------------------------- */
 /* ------------Navbar----------- */
 /* ----------------------------- */
 #mainNav{
     padding: 0.75rem;
     animation: 1s ease-out 0s 1 slideInFromTop;
+    z-index: 10;
 }
 #mainNav .navbar-brand{
     color: red;
@@ -35,7 +39,7 @@ body {
 /* ----------------------------- */
 /* ----------Lottie Logo-------- */
 /* ----------------------------- */
-#mainNav lottie-player{
+#mainNav .navbar-brand lottie-player{
     width: 3rem;
     height: 3rem;
 }
@@ -110,9 +114,15 @@ body:hover > #trailer {
 }
 /* Forces trailer to hide */
 /* Lazy to implement Javascript to check + Javascript unreliable */
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 990px){
     #trailer{
       display: none !important;
+    }
+}
+@media only screen and (max-width: 990px){
+    #dark-light-mode{
+        height: 10vh;
+        width: auto;
     }
 }
 /* Load in animations */

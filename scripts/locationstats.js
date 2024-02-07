@@ -1,7 +1,14 @@
 //////////////////////////////
 /////////Data to Chart////////
 //////////////////////////////
-
+var $loading = $('#loadingDiv').hide();
+$(document)
+  .ajaxStart(function () {
+    $loading.show();
+  })
+  .ajaxStop(function () {
+    $loading.hide();
+  });
 // On document ready
 $(document).ready(function () {
     // API KEY
@@ -54,7 +61,7 @@ $(document).ready(function () {
                 }
                 console.log(data);
               
-                new Chart(
+                var myChart = new Chart(
                   document.getElementById('myChart'),
                   {
                     // Line chart
@@ -62,6 +69,22 @@ $(document).ready(function () {
                     options: {
                       responsive: true,
                       maintainAspectRatio: false,
+                      scales: {
+                        x: {
+                          ticks: {
+                            color: (c) => {
+                              if(document.body.classList == "dark") return 'white'; else return 'black';
+                            }
+                          }
+                        },
+                        y: {
+                          ticks: {
+                            color: (c) => {
+                              if(document.body.classList == "dark") return 'white'; else return 'black';
+                            }
+                          }
+                        }
+                      },
                       plugins: {
                         tooltip: {
                           // Hides tooltip on hover over any data at 0
@@ -88,6 +111,9 @@ $(document).ready(function () {
                     }
                   }
                 );
+                window.onclick = e =>{
+                  myChart.update();
+                }
             }
             else {
                 // Display a message if there is no data

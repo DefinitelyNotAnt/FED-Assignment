@@ -74,7 +74,15 @@ Changes are usually documented [here](PatchNotes.md).
 
 ### Content
 - The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
-
+- Images for the memory game:
+    - [Mask icons created by mangsaabguru - Flaticon](https://www.flaticon.com/free-icons/mask)
+    - [Social distancing icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/social-distancing)
+    - [Disinfection icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/disinfection)
+    - [Wash your hands icons created by monkik - Flaticon](https://www.flaticon.com/free-icons/wash-your-hands)
+    - [Shower icon created by Freepik - Flaticon](https://www.flaticon.com/free-icons/furniture-and-household)
+    - [Cough icons created by berkahicon - Flaticon](https://www.flaticon.com/free-icons/cough)
+    - [Patient icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/patient)
+    - [Pets icons created by photo3idea_studio - Flaticon](https://www.flaticon.com/free-icons/pets)
 ### Acknowledgements
 
 - I received inspiration for this project from WHO, and MOH Singapore.

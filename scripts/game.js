@@ -200,5 +200,139 @@ function virusGame(){
     // Starts loop
     setTimeout(loopThis,speed);
 }
-virusGame();
+
+
+
+
+
+// MEMORY GAME
+
+
+function memoGame() {
+    const infoPrompt = document.getElementById("infoDisplay");
+    const game = document.getElementById("memory-game");
+    let cardImages = ['../assets/mask.png', '../assets/social-distancing.png', '../assets/bactericide.png', '../assets/wash-your-hands.png', '../assets/shower.png', '../assets/cover-your-cough.png', '../assets/sick-stay.png', '../assets/pets@home.png'];
+    // NOTE: only use multiples of 4 because the game gets pissy if you do multiples of 2. The below code duplicates the image in the 
+    // list and appends to cardImages.
+    // Use reduce and concat because lazy to actually run a loop
+    cardImages = cardImages.reduce((acc, img) => acc.concat([img, img]), []);
+
+    let flippedCards = [];
+
+    // Shuffles the images
+    cardImages.sort(() => 0.5 - Math.random());
+
+    cardImages.forEach(img => {
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card');
+        // Get name (Eg. from ../assets/mask.png get mask.png)
+        var itemName = img.split("/")[2];
+        cardElement.innerHTML = `<img src="${img}" alt="${itemName}">`;
+
+        cardElement.addEventListener('click', () => {
+            if (flippedCards.length < 2 && !cardElement.classList.contains('flipped')) {
+                cardElement.classList.add('flipped', 'spin'); 
+                setTimeout(() => cardElement.classList.remove('spin'), 600); 
+            
+                flippedCards.push(cardElement);
+            
+                if (flippedCards.length === 2) {
+                        setTimeout(checkForMatch, 500);
+                }
+            }
+            if (flippedCards.length < 2 && !cardElement.classList.contains('flipped')) {
+                cardElement.classList.add('flipped');
+                flippedCards.push(cardElement);
+
+                if (flippedCards.length === 2) {
+                    setTimeout(checkForMatch, 500);
+                }
+            }
+        });
+
+        game.appendChild(cardElement);
+    });
+// Function to check if 2nd last card flipped has same png as last card flipped, if it is similar then they are added to list
+    function checkForMatch() {
+        const [cardOne, cardTwo] = flippedCards;
+
+        if (cardOne.innerHTML === cardTwo.innerHTML) {
+            // Match = True
+            cardOne.removeEventListener('click', flipCard);
+            cardTwo.removeEventListener('click', flipCard);
+            // Hard coded responses for now
+            if (cardOne.firstChild.alt == "mask.png"){
+                infoPrompt.innerText = "Wear your mask when going outside, especially in crowded areas.";
+            }
+            else if(cardOne.firstChild.alt == "social-distancing.png"){
+                infoPrompt.innerText = "Keep a minimum of 2m apart from other people to practice good social distancing.";
+            }
+            else if(cardOne.firstChild.alt == "bactericide.png"){
+                infoPrompt.innerText = "Regularly disinfect your hards with disinfectant, and also things you touch often, like your phone or wallet.";
+            }
+            else if(cardOne.firstChild.alt == "wash-your-hands.png"){
+                infoPrompt.innerText = "Wash your hands often. Use soap if possible, and wash for at least 20 seconds.";
+            }
+            else if(cardOne.firstChild.alt == "shower.png"){
+                infoPrompt.innerText = "Shower every time you come back from going out.";
+            }
+            else if(cardOne.firstChild.alt == "cover-your-cough.png"){
+                infoPrompt.innerText = "Cover your coughs if you cough, especially in a public area, with a hankerchief or a tissue.";
+            }
+            else if(cardOne.firstChild.alt == "sick-stay.png"){
+                infoPrompt.innerText = "If you are feeling unwell or tested positive, stay at home until you fully recover.";
+            }
+            else if(cardOne.firstChild.alt == "pets@home.png"){
+                infoPrompt.innerText = "If you have any pets, ensure that they stay at home as much as possible. If you go out, ensure that you wash them after you return.";
+            }
+            else{
+                console.log(cardOne.firstChild.alt);
+                console.log(cardOne);
+                infoPrompt.innerText = "Stay safe~!";
+            }
+        } else {
+            // Match = False
+            cardOne.classList.remove('flipped');
+            cardTwo.classList.remove('flipped');
+            infoPrompt.innerText = "";
+        }
+
+        flippedCards = [];
+        if($('#memoGame .flipped').length === game.childElementCount){
+        //return true
+            console.log('true');
+            setTimeout(() =>{
+                runGame(0);
+                game.textContent = "";
+            },1000);
+        }
+    }
+    // Flips card
+    function flipCard() {
+        if (flippedCards.length < 2 && !this.classList.contains('flipped')) {
+            this.classList.add('flipped');
+            flippedCards.push(this);
+
+            if (flippedCards.length === 2) {
+                setTimeout(checkForMatch, 500);
+            }
+        }
+    }
+};
+function runGame(gameNo){
+    document.getElementById("startPage").style.display = "none";
+    if (gameNo == 1){
+        document.getElementById("virusGame").style.display = "block";
+        virusGame();
+    }
+    else if (gameNo == 2){
+        document.getElementById("memoGame").style.display = "block";
+        memoGame();
+    }
+    else if (gameNo == 0){
+        document.getElementById("startPage").style.display = "flex";
+        document.getElementById("memoGame").style.display = "none";
+        document.getElementById("virusGame").style.display = "none";
+    }
+}
 

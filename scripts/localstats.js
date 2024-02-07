@@ -5,7 +5,14 @@
 
 // I AM NOT ABOUT TO USE ANOTHER API TO GET LOCATION
 // Navigator.geolocation.GetCurrentPosition can at most show coordinates but not country
-
+var $loading = $('#loadingDiv').hide();
+$(document)
+  .ajaxStart(function () {
+    $loading.show();
+  })
+  .ajaxStop(function () {
+    $loading.hide();
+  });
 // On document ready
 $(document).ready(function () {
   // API KEY
@@ -57,7 +64,7 @@ $(document).ready(function () {
               }
               console.log(data);
             
-              new Chart(
+              var myChart = new Chart(
                 document.getElementById('myChart'),
                 {
                   // Line chart
@@ -65,6 +72,22 @@ $(document).ready(function () {
                   options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    scales: {
+                      x: {
+                        ticks: {
+                          color: (c) => {
+                            if(document.body.classList == "dark") return 'white'; else return 'black';
+                          }
+                        }
+                      },
+                      y: {
+                        ticks: {
+                          color: (c) => {
+                            if(document.body.classList == "dark") return 'white'; else return 'black';
+                          }
+                        }
+                      }
+                    },
                     plugins: {
                       tooltip: {
                         // Hides tooltip on hover over any data at 0
@@ -91,6 +114,9 @@ $(document).ready(function () {
                   }
                 }
               );
+              window.onclick = e =>{
+                myChart.update();
+              }
           }
           else {
               // Display a message if there is no data
@@ -121,30 +147,4 @@ function fitToContainer(canvas){
   canvas.width  = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;
 }
-// (async function() {
-//   const data = [
-//     { year: 2010, cases: 10 },
-//     { year: 2011, cases: 20 },
-//     { year: 2012, cases: 15 },
-//     { year: 2013, cases: 25 },
-//     { year: 2014, cases: 22 },
-//     { year: 2015, cases: 30 },
-//     { year: 2016, cases: 28 },
-//   ];
 
-//   new Chart(
-//     document.getElementById('myChart'),
-//     {
-//       type: 'line',
-//       data: {
-//         labels: data.map(row => row.year),
-//         datasets: [
-//           {
-//             label: 'Cases by day',
-//             data: data.map(row => row.cases)
-//           }
-//         ]
-//       }
-//     }
-//   );
-// })();
