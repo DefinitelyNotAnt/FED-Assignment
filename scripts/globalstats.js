@@ -212,23 +212,31 @@ $(document).ready(function () {
         "Holy See"
     ];
     function fetchData(country) {
+        // Loaders (Hide)
         var $loading = $('#loadingDiv').hide();
-    var $footer = $('#footer').hide();
-    $(document)
-    .ajaxStart(function () {
-        $loading.show();
-    })
-    .ajaxStop(function () {
-        $loading.hide();
-        $footer.show();
-    });
-
+        var $footer = $('#footer').hide();
+        $(document)
+        // On ajax start
+        .ajaxStart(function () {
+            // Show loader
+            $loading.show();
+        })
+        // On ajax return
+        .ajaxStop(function () {
+            // Hide loader show footer
+            $loading.hide();
+            $footer.show();
+        });
+        // Scroll to top
+        const tableTop = document.getElementById("mainNav");
+        tableTop.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
         return $.ajax({
             method: 'GET',
             url: `https://api.api-ninjas.com/v1/covid19?country=${country}`,
             headers: { 'X-Api-Key': apiKey },
             contentType: 'application/json'
         });
+        
     }
 
     function displayYearlyCases(country, data) {
