@@ -1,3 +1,17 @@
+var $loading = $('#loadingDiv').hide();
+var $footer = $('#footer').hide();
+$(document)
+  .ajaxStart(function () {
+    $loading.show();
+  })
+  .ajaxStop(function () {
+    $loading.hide();
+    $footer.show();
+});
+
+
+
+
 $(document).ready(function () {
     const apiKey = "CwcyKOR5lUGs6RTfUXNeHw==AfTraDK9OjymV4LP";
     const countries = [
@@ -198,6 +212,17 @@ $(document).ready(function () {
         "Holy See"
     ];
     function fetchData(country) {
+        var $loading = $('#loadingDiv').hide();
+    var $footer = $('#footer').hide();
+    $(document)
+    .ajaxStart(function () {
+        $loading.show();
+    })
+    .ajaxStop(function () {
+        $loading.hide();
+        $footer.show();
+    });
+
         return $.ajax({
             method: 'GET',
             url: `https://api.api-ninjas.com/v1/covid19?country=${country}`,
