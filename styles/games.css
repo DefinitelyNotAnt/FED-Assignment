@@ -44,7 +44,6 @@ h3{
   justify-content: center;
   font-size: large;
   text-align: center;
-  padding: 5px 5px 5px 5px;
   transition: linear 1s, transform 0.2s,opacity 1s;
 }
 
@@ -65,7 +64,11 @@ h3{
 .gameStart{
   width: 40vw;
   height: 50vh;
-  background-color: red;
+  border: 1px solid black;
+  border-radius: 25%;
+}
+.dark .gameStart{
+  border-color: white;
 }
 .mainHead{
   position: relative;

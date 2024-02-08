@@ -3,7 +3,12 @@
 //////////////////////////////
 // Function so it can be rerun multiple times
 
-
+document.body.onkeyup = function(e) {
+    if (e.key == " "   
+    ) {
+      window.location.reload();
+    };
+}
 //grab data
 const APIKEY = '65c4301d86354ff420464897';
 const link = 'https://pandemic-7eff.restdb.io/rest/statement';
@@ -54,12 +59,9 @@ function getStatements() {
 
 // Call the function to fetch data using the Fetch API
 getStatements();
-
+var score = 0;
 function virusGame(){
-    const lastHighScore = parseFloat(localStorage.score);
-    document.getElementById("highscore").innerText = "High score: "+localStorage.score;
     var scoreDisplay = document.getElementById("scoreDisplay");
-    var score = 0;
     var totalBubbles = 0;
     // Get div app
     const root = document.querySelector("#app");
@@ -76,8 +78,11 @@ function virusGame(){
 
     class Bubble {
     constructor() {
+        this.handleBubbleClick = this.handleBubbleClick.bind(this);
         this.scoreamt = 0;
         this.bubbleSpan = undefined;
+        this.height = 200;
+        this.width = this.height;
         this.handleNewBubble();
         // Generates bubble in random location
         this.posY = this.randomNumber(innerHeight - 20, 20);
@@ -87,8 +92,6 @@ function virusGame(){
         this.bubbleSpan.style.left = this.posX + "px";
 
         // setting height and width of the bubble
-        this.height = 200;
-        this.width = this.height;
 
         this.bubbleEnd.call(this.bubbleSpan, this.randomNumber(7500, 10000));
     }
@@ -103,8 +106,12 @@ function virusGame(){
         const selectedList = randomIndex === 0 ? trueStatements : falseStatements;
         const index = Math.floor(Math.random() * selectedList.length);
         const randomtext=selectedList[index];
-        this.scoreamt = randomIndex;
-        console.log(randomtext);
+        if (randomIndex == 0){
+            this.scoreamt = 1;
+        }
+        else{
+            this.scoreamt = -1;
+        }
         this.bubbleSpan.innerText = randomtext;
         this.color = this.randomGen(randomIndex);
         root.append(this.bubbleSpan);
@@ -113,15 +120,16 @@ function virusGame(){
 
         // On click end bubble
         this.bubbleSpan.addEventListener("click", this.bubbleEnd);
-        this.bubbleSpan.addEventListener("click", function (){
-            this.addScore;
-        });
+        // On click end bubble
+        this.bubbleSpan.addEventListener("click", this.handleBubbleClick);
     }
-    addScore(){
-        console.log(this.scoreamt)
+    handleBubbleClick() {
+        console.log("Bubble clicked");
+        console.log("score:",score);
+        console.log("this.scoreamt:", this.scoreamt);
         score += this.scoreamt;
+        console.log("score:", score);
     }
-
     handlePosition() {
         // positioning the bubble in different random X and Y
         const randomY = this.randomNumber(60, -60);
@@ -153,6 +161,9 @@ function virusGame(){
     }
 
     bubbleEnd(removingTime = 0) {
+        if (removingTime > 0){
+            score += this.scoreamt;
+        }
         setTimeout(
         () => {
             requestAnimationFrame(() => this.classList.add("bubble--bust"));
@@ -177,15 +188,17 @@ function virusGame(){
             console.log("break");
             // Pauses for 0.5 seconds before clearing
             setTimeout(function(){
-                console.log("Score: "+score);
+                console.log("Total bubbles: "+root.childElementCount);
                 root.textContent = "";
             },500)
             // 1s for full reset (0.5s after bubbles clear)
             setTimeout(function(){
-                scoreDisplay.innerText = "Score = "+score;
+                scoreDisplay.innerText = "Total bubbles: "+totalBubbles-root.childElementCount;
+                score = 0;
                 // Set score
                 document.getElementById("currentCount").innerText = "Number of bubbles: "+root.childElementCount;
                 document.getElementById("totalBubbles").innerText = "Total bubbles so far: "+totalBubbles;
+                score = 0;
             },1000)
         }
         else{
@@ -256,7 +269,7 @@ function memoGame() {
             // Match = True
             cardOne.removeEventListener('click', flipCard);
             cardTwo.removeEventListener('click', flipCard);
-            // Hard coded responses for now
+            // Hard coded responses because only 8 images and each has different text
             if (cardOne.firstChild.alt == "mask.png"){
                 infoPrompt.innerText = "Wear your mask when going outside, especially in crowded areas.";
             }
@@ -315,18 +328,27 @@ function memoGame() {
         }
     }
 };
+// Runs the game
 function runGame(gameNo){
+    // Hide the choose game menu
     document.getElementById("startPage").style.display = "none";
+    // Runs virus game
     if (gameNo == 1){
+        // Makes virus game visible
         document.getElementById("virusGame").style.display = "block";
         virusGame();
     }
+    // Runs memory
     else if (gameNo == 2){
+        // Makes memory game visible
         document.getElementById("memoGame").style.display = "block";
         memoGame();
     }
+    // On game clear reset
     else if (gameNo == 0){
+        // Shows choose game menu
         document.getElementById("startPage").style.display = "flex";
+        // Hides both games to ensure both are hidden
         document.getElementById("memoGame").style.display = "none";
         document.getElementById("virusGame").style.display = "none";
     }

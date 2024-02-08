@@ -87,8 +87,8 @@
         <div class="flexContain" id="startPage">
             <h1 class="mainHead">Which game do you want to try?</h1>
             <section id="gameStarter">
-                <a onclick="runGame(1)"><div class="gameStart"></div></a>
-                <a onclick="runGame(2)"><div class="gameStart"></div></a>
+                <a onclick="runGame(1)"><div class="gameStart"><lottie-player src="../assets/bubblegameicon.json" background="transparent" speed="1" loop autoplay></lottie-player></div></a>
+                <a onclick="runGame(2)"><div class="gameStart"><lottie-player src="../assets/memorygameicon.json" background="transparent" speed="1" loop autoplay></lottie-player></div></a>
             </section>
         </div>
         
@@ -99,7 +99,7 @@
             <h2 class="description">Click to kill those viruses! Don't let it exceed 50!</h2>
             <h3 id="currentCount">Number of Bubbles: 0</h3>
             <h3 id="totalBubbles">Total bubbles so far: 0</h3>
-            <h3 id="highscore">Highscore: 0</h3>
+            <h3>Press spacebar to exit!</h3>
             <!-- Div to store the bubbles -->
             <div id="app"></div>
         </section>
@@ -107,6 +107,7 @@
         <section id="memoGame">
             <h1> </h1>
             <h2 class="description">Match the precautions!</h2>
+            <h3>Press spacebar to exit!</h3>
             <p id="infoDisplay"></p>
             <div id="memory-game">
                 <!-- DONT ADD ANYTHING HERE!!!!! -->
