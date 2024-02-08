@@ -10,13 +10,14 @@ https://pixso.net/app/editor/j8jiKUibePBX1AMz0eL8ig?icon_type=1&page-id=0%3A1
 ## Features
 
  It has an introduction page to introduce users to the website and direct them to the website's main features.
- It has a statistics page that have two options, which are local and global. Both pages have a Covid-19 heatmap, and headlines. The differences in these two are 
- 1. Global allows users to see statistics from different countries and global headlines.
- 2. Local detect the country the user is from and displays local statistics along with local headlines and also resource centers in that country.
- It has an about page to provide detaied information about various topics, like Faq and About Us.
+ It has a statistics page that have three options, which are local, location and global. For local and location, they use chart.js to get a graph of new cases by day, where location prompts the user with a windows prompt for the country.
+ 1. Global allows users to see statistics from different countries.
+ 2. Local defaults to Singapore and shows SIngapore's COVID-19 new cases data.
+ 3. Location prompts the user to input a country name and will search up the country using API, before making the data into a chart.
+ It has an about page to provide detailed information about various topics, like Symptoms, medical data and About Us.
 
 ### Features Left to Implement
-- Another feature idea would be a game page where user will learn through playing a series of game-like feature to understand about pandemics.
+- Getting different country headlines (Complications include: getting news sources that are reliable, formatting it for each country, )
 
 ## Technologies Used
 - [Lottie](https://bootstrap.com)

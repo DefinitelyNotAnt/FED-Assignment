@@ -183,8 +183,8 @@ function virusGame(){
         document.getElementById("currentCount").innerText = "Number of bubbles: "+root.childElementCount;
         document.getElementById("totalBubbles").innerText = "Total bubbles so far: "+totalBubbles;
         speed = 2000 - (root.childElementCount * 5);
-        // When it reaches 50
-        if (score >= 50){
+        // When it goes below 0
+        if (score < 0){
             console.log("break");
             // Pauses for 0.5 seconds before clearing
             setTimeout(function(){
