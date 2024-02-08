@@ -5,14 +5,7 @@
 
 // I AM NOT ABOUT TO USE ANOTHER API TO GET LOCATION
 // Navigator.geolocation.GetCurrentPosition can at most show coordinates but not country
-var $loading = $('#loadingDiv').hide();
-$(document)
-  .ajaxStart(function () {
-    $loading.show();
-  })
-  .ajaxStop(function () {
-    $loading.hide();
-  });
+
 // On document ready
 $(document).ready(function () {
   // API KEY

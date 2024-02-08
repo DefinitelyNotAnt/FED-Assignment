@@ -92,3 +92,13 @@ $(document).ready(function() {
 });
 // Sets trailer to visible if PC view
 trailer.style.display = "flex";
+
+
+var $loadingOverlay = $('#loadingOverlay');
+// Show loading overlay when the page loads
+$loadingOverlay.show();
+
+// Hide loading overlay after animation duration (2 seconds in this case)
+setTimeout(function () {
+  $loadingOverlay.hide();
+}, 2000);

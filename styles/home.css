@@ -23,7 +23,7 @@ span{
 }
 
 
-.row {
+.letterrow {
   height: auto;
   flex-basis: 48%; /* Two columns, each taking up 48% of the container width */
   margin-bottom: 10px; /* Optional margin between rows */

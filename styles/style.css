@@ -172,4 +172,5 @@ body:hover > #trailer {
 /* For Footer background */
 .footer-container{
     background-color: lightblue;
+    height:450px;
 }
