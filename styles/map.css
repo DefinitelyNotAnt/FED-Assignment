@@ -3,6 +3,7 @@ html, body, #viewDiv {
   margin: 0;
   height: 100%;
   width: 100%;
+  cursor: pointer;
 }
 .mapdiv{
     background-color:#2e3033;
