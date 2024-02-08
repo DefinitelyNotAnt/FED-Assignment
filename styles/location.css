@@ -20,5 +20,8 @@ h1{
     width: 30vw;
     height: 50vh;
 }
-
+.center-text{
+    text-align: center;
+    font-size: large;
+}
 

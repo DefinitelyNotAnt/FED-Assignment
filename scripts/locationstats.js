@@ -119,7 +119,6 @@ $(document).ready(function () {
                 // Display a message if there is no data
                 var displaymessage = document.getElementById("errormessages");
                 displaymessage.innerText = 'No data available.';
-                document.body.appendChild(displaymessage);
             }
         },
         error: function ajaxError(jqXHR) {
