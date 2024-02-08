@@ -1,8 +1,8 @@
-# Covid-19 Website
-The project aims to create a website that centers around the Covid-19 virus. The website's purposes is for the users from anywhere to be able to utilize the website by obtaining data from respective countries. 
+# CAPE Covid-19 Website
+The project is created by Anson Ang and Thomas Ng. It aims to create a website that centers around the Covid-19 virus and pandemic in general. The website's purposes is for the users from anywhere to be able to utilize the website by obtaining data from respective countries. Users can also learn and understand what is it, why does it happen, how to prevent/combat and more, basically to equip users with knowledge to face pandemics. 
  
 ## Design Process
-This website focuses on the general people,whether young or old, professional or casual to be able to access this website. Users are able to access real time information about Covid-19 presemted in a simple and relatively easy way to understand. 
+This website focuses on the general people,whether young or old, professional or casual to be able to access this website. Users are able to access real time information about Covid-19 presemted in a simple and relatively easy way to understand. Information about Covid-19 is displayed in a way that is easy to understand. Lots os convienient features for users' comfort when browsing.
 
 Wireframe link:
 https://pixso.net/app/editor/j8jiKUibePBX1AMz0eL8ig?icon_type=1&page-id=0%3A1
@@ -10,20 +10,21 @@ https://pixso.net/app/editor/j8jiKUibePBX1AMz0eL8ig?icon_type=1&page-id=0%3A1
 ## Features
 
  It has an introduction page to introduce users to the website and direct them to the website's main features.
+ It also has a heatmap section where users can see the concentration of covid 19 cases of each country.
  It has a statistics page that have three options, which are local, location and global. For local and location, they use chart.js to get a graph of new cases by day, where location prompts the user with a windows prompt for the country.
  1. Global allows users to see statistics from different countries.
  2. Local defaults to Singapore and shows SIngapore's COVID-19 new cases data.
  3. Location prompts the user to input a country name and will search up the country using API, before making the data into a chart.
- It has an about page to provide detailed information about various topics, like Symptoms, medical data and About Us.
+ It has an information page to provide detailed information about various topics, like Symptoms, medical data and diagnosis.
  It also includes 2 games, a bubble clicking game and a card memory game, to teach mroe information about COVID-19.
  The bubble game uses a restDB databases to get the data and puts it in the bubbles, while the card game is purely javascript.
-
+Last but not least, it has a feature for user to change their browser window from light mode to dark mode and vice versa.
 
 ### Features Left to Implement
 - Getting different country headlines (Complications include: getting news sources that are reliable, formatting it for each country, etc)
 - Functioning search bar would require a lot of time to load due to the amount of covid data thre is.
 ## Technologies Used
-- [Lottie](https://bootstrap.com)
+- [BootStrap](https://bootstrap.com)
     - The project uses **Bootstrap** for website template.
 
 - [Lottie](https://lottie.com)
@@ -53,6 +54,7 @@ Bugs across all pages:
     - The words will clip past with some divs overlapping
     - Can't really be fixed
 Page related bugs:
+Some pages's container would affect other layout
 
 1. Home Page:
     -
@@ -85,6 +87,7 @@ Changes are usually documented [here](PatchNotes.md).
 ## Credits
 
 ### Content
+- Lottie animation
 - The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
 - Images for the memory game:
     - [Mask icons created by mangsaabguru - Flaticon](https://www.flaticon.com/free-icons/mask)
