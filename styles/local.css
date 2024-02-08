@@ -24,3 +24,21 @@ h1{
     text-align: center;
     font-size: large;
 }
+#loadingDiv{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(125,125,125,0.9);
+    flex-direction: column;
+}
+#loadingDiv lottie-player{
+    height: 25vh;
+    width: auto;
+}
+#loadingDiv p{
+    text-align: center;
+    font-size: larger;
+}
