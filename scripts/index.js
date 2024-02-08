@@ -1,3 +1,13 @@
+function redirectToInformation() {
+  window.location.href = "information.html";
+}
+function redirectToGames() {
+  window.location.href = "games.html";
+}
+function redirectToStats() {
+  window.location.href = "locationstats.html";
+}
+/*slideshow*/
 let slideIndex = 1;
 let slideInterval;
 
