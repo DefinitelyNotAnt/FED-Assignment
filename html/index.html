@@ -75,7 +75,7 @@
                 <li class="nav-item interactable" data-type="link">
                     <a class="nav-link" onclick="ModeSwitch()"><script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
 
-                        <dotlottie-player src="https://lottie.host/f1425de3-864a-438e-8dc3-bd61531b6889/4I71YMtUWy.json" id="dark-light-mode" background="transparent" speed="1" loop autoplay></dotlottie-player></a>
+                        <dotlottie-player src="https://lottie.host/f1425de3-864a-438e-8dc3-bd61531b6889/4I71YMtUWy.json" id="dark-light-mode" background="transparent" speed="1" style="height: 25px;" loop autoplay></dotlottie-player></a>
                 </li>
             </ul>
             <!-- Search Bar -->
@@ -86,12 +86,11 @@
         </div>
     </nav>
     <!-- Main -->
-
     <slideshow>
         <div class="slideshow-container">
             <div class="mySlides">
                 <div class="overlay-container">
-                    <img src="../assets/crowd.jpg" width="100%" height="400px" alt="Slide 2">
+                    <img src="../assets/crowd.jpg" width="100%" height="600px" alt="Slide 2">
                     <div class="slideoverlay">
                         <div class="slide-text">
                             <h2 class="slide-title">Welcome to CAPE!</h2>
@@ -102,7 +101,7 @@
             </div>
             <div class="mySlides">
                 <div class="overlay-container">
-                    <img src="../assets/covidbackground.png" width="100%" height="400px" alt="Slide 2">
+                    <img src="../assets/covidbackground.png" width="100%" height="600px" alt="Slide 2">
                     <div class="slideoverlay">
                         <div class="slide-text">
                             <h2 class="slide-title">Welcome to CAPE!</h2>
@@ -113,7 +112,7 @@
             </div>
             <div class="mySlides">
                 <div class="overlay-container">
-                    <img src="../assets/covid19_vaccine_391730621.jpeg" width="100%" height="400px" alt="Slide 3">
+                    <img src="../assets/covid19_vaccine_391730621.jpeg" width="100%" height="600px" alt="Slide 3">
                     <div class="slideoverlay">
                         <div class="slide-text">
                             <h2 class="slide-title">Welcome to CAPE!</h2>
@@ -179,7 +178,11 @@
         </div>
     </div>
     <br> 
-    <div class="map-container">
+    <div class="lottie-container">
+        <div class="lottie-container"><dotlottie-player src="https://lottie.host/8a824e81-4872-432f-a5e7-220797060463/0uxMECJk5c.json" background="transparent" speed="0.75" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player></div>
+        <h2 class="attention-getter">HEATMAP</h2>
+    </div>
+    <div class="map-container">        
         <div class = "map-elements">
             <div class="image-container">
                 <div class="overlay"></div>
@@ -192,9 +195,6 @@
         <div class="map-elements">
             <div class="column">
               <!-- Content for the first column goes here -->
-              <div class="lottie-container">
-                <h2 class="attention-getter">HEATMAP</h2>
-              </div>
             </div>
             <div class="column">
               <!-- Content for the second column goes here -->
@@ -202,37 +202,23 @@
             </div>
         </div>
     </div>
-    <div class="map-container">
-        <div class = "map-elements">
-            <div class="column">
-                <!-- Content for the first column goes here -->
-                <div class="lottie-container">
-                    <h2 class="attention-getter">Information</h2>
-                  </div>
-            </div>
-            <div class="column">
-                <!-- Content for the second column goes here -->
-                Column 2 Content
-            </div>
-        </div>
-        <div class="map-elements">
-            <div class="lottie-container">
-                <div class="lottie-container"><dotlottie-player src="https://lottie.host/8a824e81-4872-432f-a5e7-220797060463/0uxMECJk5c.json" background="transparent" speed="0.75" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player></div>
-            </div>
-        </div>
+    <div class="lottie-container">
+        <h2 class="attention-getter">INFORMATION</h2>
+        <dotlottie-player src="https://lottie.host/2da6470f-ae01-4bca-8f20-6103648a5f38/wlwTjX7OuI.json" background="transparent" speed="0.25" style="width: 150px; height: 100px;" loop autoplay></dotlottie-player>
     </div>
-    <div class="map-container">
+    <div class="map-container">        
         <div class = "map-elements">
             <div class="image-container">
-
-            </div>           
+                <div class="overlay"></div>
+                <img class="blurable-image" src="../assets/heatmap.png" width="700px" onclick="redirectToPage()">
+                <div class="hover-element">
+                  <p>View Full Heatmap</p>
+                </div>
+              </div>              
         </div>
         <div class="map-elements">
             <div class="column">
               <!-- Content for the first column goes here -->
-              <div class="lottie-container">
-                <h2 class="attention-getter">HEATMAP</h2>
-              </div>
             </div>
             <div class="column">
               <!-- Content for the second column goes here -->
@@ -240,26 +226,51 @@
             </div>
         </div>
     </div>
-    <div class="map-container">
+    <div class="lottie-container">
+        <dotlottie-player src="https://lottie.host/1858f7fe-004b-4185-84eb-97662dcbcf07/JUJxnjtFc3.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+        <h2 class="attention-getter">STATISTICS</h2>
+    </div>
+    <div class="map-container">        
         <div class = "map-elements">
-            <div class="column">
-                <!-- Content for the first column goes here -->
-                <div class="lottie-container">
-                    <h2 class="attention-getter">Information</h2>
-                  </div>
-            </div>
-            <div class="column">
-                <!-- Content for the second column goes here -->
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac risus eu nulla efficitur ultricies. Integer id mauris vel odio ultricies suscipit. Fusce vel odio at sapien convallis tincidunt eu sit amet erat. In hac habitasse platea dictumst. Quisque auctor quam in justo cursus, vel efficitur arcu vulputate. Vivamus tincidunt, turpis ac ultrices bibendum, ex sapien lacinia odio, eu bibendum sem quam ac libero. Ut laoreet, ipsum nec luctus viverra, orci dui convallis velit, ac ultrices risus elit nec ipsum.
-
-Suspendisse potenti. Sed sed justo vitae turpis sagittis aliquet. Nunc at nisl eget mauris vehicula congue ut vel libero. Nullam ut ultricies nunc. Praesent at magna id libero bibendum efficitur. Vivamus euismod urna vel purus auctor, eu lacinia nisi volutpat. Aenean eu tortor sagittis, aliquet quam eget, feugiat sem. Vestibulum eget vulputate enim. Duis vel fringilla odio.
-
-Phasellus in efficitur sapien. Quisque id nisl vel erat blandit ultricies. Fusce eget justo ac purus feugiat consequat. Integer condimentum varius semper. Nam at vestibulum quam. Donec imperdiet, nulla vel lacinia gravida, ligula justo vulputate ligula, et iaculis justo ipsum nec purus. Curabitur imperdiet libero ut est tempus, at elementum neque eleifend.
-            </div>
+            <div class="image-container">
+                <div class="overlay"></div>
+                <img class="blurable-image" src="../assets/heatmap.png" width="700px" onclick="redirectToPage()">
+                <div class="hover-element">
+                  <p>View Full Heatmap</p>
+                </div>
+              </div>              
         </div>
         <div class="map-elements">
-            <div class="lottie-container">
-                <div class="lottie-container"><dotlottie-player src="https://lottie.host/8a824e81-4872-432f-a5e7-220797060463/0uxMECJk5c.json" background="transparent" speed="0.75" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player></div>
+            <div class="column">
+              <!-- Content for the first column goes here -->
+            </div>
+            <div class="column">
+              <!-- Content for the second column goes here -->
+              Column 2 Content
+            </div>
+        </div>
+    </div>
+    <div class="lottie-container">
+        <h2 class="attention-getter">GAMES</h2>
+        <dotlottie-player src="https://lottie.host/02acfeef-4283-4537-8c2f-6384513046bd/KpU51q3D0v.json" background="transparent" speed="0.5" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+    </div>
+    <div class="map-container">        
+        <div class = "map-elements">
+            <div class="image-container">
+                <div class="overlay"></div>
+                <img class="blurable-image" src="../assets/heatmap.png" width="700px" onclick="redirectToPage()">
+                <div class="hover-element">
+                  <p>View Full Heatmap</p>
+                </div>
+              </div>              
+        </div>
+        <div class="map-elements">
+            <div class="column">
+              <!-- Content for the first column goes here -->
+            </div>
+            <div class="column">
+              <!-- Content for the second column goes here -->
+              Column 2 Content
             </div>
         </div>
     </div>

@@ -1,19 +1,14 @@
-
-#loadingDiv{
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
+html{
+    color:white;
+}
+body{
+    color:white;
+}
+.container{
+    display:flex;
     justify-content: center;
-    align-items: center;
-    background-color: rgba(125,125,125,0.9);
-    flex-direction: column;
 }
-#loadingDiv lottie-player{
-    height: 25vh;
-    width: auto;
+.result-container{
+   width:75%; 
 }
-#loadingDiv p{
-    text-align: center;
-    font-size: larger;
-}
+

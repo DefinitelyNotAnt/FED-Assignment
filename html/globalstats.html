@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- My styles -->
         <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/about.css">
+        <link rel="stylesheet" href="../styles/global.css">
         <!-- Lottie player -->
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     </head>
@@ -74,7 +74,7 @@
                     <li class="nav-item interactable" data-type="link">
                         <a class="nav-link" onclick="ModeSwitch()"><script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
 
-                            <dotlottie-player src="https://lottie.host/f1425de3-864a-438e-8dc3-bd61531b6889/4I71YMtUWy.json" id="dark-light-mode" background="transparent" speed="1" loop autoplay></dotlottie-player></a>
+                            <dotlottie-player src="https://lottie.host/f1425de3-864a-438e-8dc3-bd61531b6889/4I71YMtUWy.json" id="dark-light-mode" background="transparent" speed="1" style="height: 25px;" loop autoplay></dotlottie-player></a>
                     </li>
                 </ul>
                 <!-- Search Bar -->
@@ -84,8 +84,10 @@
             </form>
             </div>
         </nav>
-        <div class="container">
-            <div class="result-container"></div>            
+        <h1>GLOBAL COVID-19 STATISTICS</h1>
+        <div class="data-container">
+            <div class="flag-container" id="flagContainer"></div>
+            <div class="result-container" id="resultContainer"> Click on one of the country and see! </div>
         </div>
         <!--Footer-->
         <div class="footer-container">

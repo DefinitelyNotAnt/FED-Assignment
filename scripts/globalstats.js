@@ -206,12 +206,12 @@ $(document).ready(function () {
         });
     }
 
-    function displayTable(country, data) {
-        const resultContainer = $('.result-container');
-    
+    function displayYearlyCases(country, data) {
+        const resultContainer = $('#resultContainer');
+
         if (data && data.cases) {
             const yearlyData = {};
-    
+
             // Loop through the dates and aggregate total cases for each year
             Object.entries(data.cases).forEach(([date, dailyCases]) => {
                 const year = new Date(date).getFullYear();
@@ -220,11 +220,11 @@ $(document).ready(function () {
                 }
                 yearlyData[year] += dailyCases.total;
             });
-    
+
             // Sort the yearly data in descending order of the year
             const sortedYearlyData = Object.entries(yearlyData)
                 .sort(([yearA], [yearB]) => yearB - yearA);
-    
+
             const tableHtml = `
                 <table class="table">
                     <thead>
@@ -236,22 +236,34 @@ $(document).ready(function () {
                         ).join('')}
                     </tbody>
                 </table>`;
-    
-            resultContainer.append(`<h2>${country} Yearly Cases</h2>`).append(tableHtml);
+
+            resultContainer.html(`<h2>${country} Yearly Cases</h2>`).append(tableHtml);
+        } else {
+            resultContainer.html(`<p>No cases data available for ${country}</p>`);
         }
     }
-    
 
+    function createTextWithClick(country) {
+        const textElement = $('<p>', {
+            text: country,
+            class: 'glamorous-text',
+            click: function () {
+                fetchData(country)
+                    .done(function (result) {
+                        displayYearlyCases(country, result[0]);
+                    })
+                    .fail(function (jqXHR) {
+                        console.error('Error: ', jqXHR.responseText);
+                        displayYearlyCases(country, null); // Display "Unknown" for failed requests
+                    });
+            }
+        });
+
+        return textElement;
+    }
+
+    const flagContainer = $('#flagContainer');
     countries.forEach(function (country) {
-        fetchData(country)
-            .done(function (result) {
-                console.log(result);
-                displayTable(country, result[0]);
-            })
-            .fail(function (jqXHR) {
-                console.error('Error: ', jqXHR.responseText);
-                $('.result-container').append(`<p>Error fetching data for ${country}: ${jqXHR.responseText}</p>`);
-            });
+        flagContainer.append(createTextWithClick(country));
     });
-    
 });
