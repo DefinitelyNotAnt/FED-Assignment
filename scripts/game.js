@@ -76,10 +76,9 @@ function virusGame(){
 
     class Bubble {
     constructor() {
+        this.scoreamt = 0;
         this.bubbleSpan = undefined;
         this.handleNewBubble();
-        this.color = this.randomGen();
-
         // Generates bubble in random location
         this.posY = this.randomNumber(innerHeight - 20, 20);
         this.posX = this.randomNumber(innerWidth - 20, 20);
@@ -104,18 +103,23 @@ function virusGame(){
         const selectedList = randomIndex === 0 ? trueStatements : falseStatements;
         const index = Math.floor(Math.random() * selectedList.length);
         const randomtext=selectedList[index];
+        this.scoreamt = randomIndex;
         console.log(randomtext);
         this.bubbleSpan.innerText = randomtext;
+        this.color = this.randomGen(randomIndex);
         root.append(this.bubbleSpan);
         this.handlePosition();
         totalBubbles += 1;        
 
         // On click end bubble
         this.bubbleSpan.addEventListener("click", this.bubbleEnd);
-        this.bubbleSpan.addEventListener("click", function(){
-            if (randomtext in trueStatements){score+=1;}                
-            else if(randomtext in falseStatements){score-=1;}                
+        this.bubbleSpan.addEventListener("click", function (){
+            this.addScore;
         });
+    }
+    addScore(){
+        console.log(this.scoreamt)
+        score += this.scoreamt;
     }
 
     handlePosition() {
@@ -140,12 +144,12 @@ function virusGame(){
     randomNumber(max, min) {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
-    randomGen(){
+    randomGen(val){
         var color = [
-            "red",
-            "green"
+            "green",
+            "red"
         ]
-        return color[Math.floor(Math.random()*2)];
+        return color[val];
     }
 
     bubbleEnd(removingTime = 0) {
@@ -158,15 +162,8 @@ function virusGame(){
         setTimeout(() => {
         requestAnimationFrame(() => this.remove());
         }, (removingTime+50));
-        if (removingTime==0 && this.color == "green"){
-            score+=1;
-        }
-        else if (removingTime == 0 && this.color == "red"){
-            score -= 1;
-        }
     }
     }
-    new Bubble()
     // creating many bubble instance
     var speed = 3000 - (root.childElementCount * 5);
     var loopThis = function () {
@@ -176,23 +173,19 @@ function virusGame(){
         document.getElementById("totalBubbles").innerText = "Total bubbles so far: "+totalBubbles;
         speed = 2000 - (root.childElementCount * 5);
         // When it reaches 50
-        if (root.childElementCount >= 50){
+        if (score >= 50){
             console.log("break");
             // Pauses for 0.5 seconds before clearing
             setTimeout(function(){
                 console.log("Score: "+score);
                 root.textContent = "";
             },500)
-            if (score > lastHighScore){
-                localStorage.setItem("score",score);
-            }
             // 1s for full reset (0.5s after bubbles clear)
             setTimeout(function(){
                 scoreDisplay.innerText = "Score = "+score;
                 // Set score
                 document.getElementById("currentCount").innerText = "Number of bubbles: "+root.childElementCount;
                 document.getElementById("totalBubbles").innerText = "Total bubbles so far: "+totalBubbles;
-                document.getElementById("highscore").innerText = "High score: "+localStorage.score;
             },1000)
         }
         else{

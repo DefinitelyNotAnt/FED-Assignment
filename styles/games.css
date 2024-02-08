@@ -42,7 +42,9 @@ h3{
   border-radius: 50%;
   align-items: center;
   justify-content: center;
-  font-size: larger;
+  font-size: large;
+  text-align: center;
+  padding: 5px 5px 5px 5px;
   transition: linear 1s, transform 0.2s,opacity 1s;
 }
 

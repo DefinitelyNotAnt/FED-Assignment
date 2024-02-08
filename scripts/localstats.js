@@ -2,7 +2,14 @@
 /////////Data to Chart////////
 //////////////////////////////
 
-
+var $loading = $('#loadingDiv').hide();
+$(document)
+  .ajaxStart(function () {
+    $loading.show();
+  })
+  .ajaxStop(function () {
+    $loading.hide();
+  });
 // I AM NOT ABOUT TO USE ANOTHER API TO GET LOCATION
 // Navigator.geolocation.GetCurrentPosition can at most show coordinates but not country
 
