@@ -43,7 +43,10 @@ body {
     width: 3rem;
     height: 3rem;
 }
-
+.dark hr{
+    color:color(srgb red green blue);
+    border-color: inherit;
+}
 
 
 
