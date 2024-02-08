@@ -98,31 +98,7 @@ span{
   display:flex;
   justify-content: center;
 }
-.attention-getter1 {
-  color: #ff4500; /* Set the text color to a bright or contrasting color */
-  font-size: 44px; /* Increase the font size */
-  font-weight: bold; /* Make the text bold */
-  text-transform: uppercase; /* Convert text to uppercase */
-  letter-spacing: 1px; /* Add a small letter spacing */
-  text-shadow: 2px 2px 4px #ff0000; /* Add a subtle text shadow */
-}
 
-/* Optional: Add animation for extra attention */
-.attention-getter:hover {
-  animation: bounce 1.5s ease;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-15px);
-  }
-  60% {
-    transform: translateY(-10px);
-  }
-}
 
 .column{  
   text-align: center;
@@ -197,7 +173,7 @@ span{
 }
 
 .image-container:hover .blurable-image {
-  width:95%;
+  width:100%;
   filter: blur(2px); /* Adjust the blur amount */
 }
 .hover-element {

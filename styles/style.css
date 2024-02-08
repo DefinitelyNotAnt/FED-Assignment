@@ -48,8 +48,39 @@ body {
     border-color: inherit;
 }
 
+.attention-getter {
+    color: #1E90FF; /* Set the text color to a bright or contrasting color */
+    font-size: 34px; /* Increase the font size */
+    text-transform: uppercase; /* Convert text to uppercase */
+    letter-spacing: 1px; /* Add a small letter spacing */
+}
+.attention-getter:hover {
+    animation: bounce 1.5s ease;
+}
+.glamorous-icon1:hover {
+    animation: bounce 1.5s ease;
+}
+.glamorous-icon2:hover {
+    animation: bounce 1.5s ease;
+}
+.glamorous-icon3:hover {
+    animation: bounce 1.5s ease;
+}
+.glamorous-icon4:hover {
+    animation: bounce 1.5s ease;
+}
 
-
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-15px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+}
 
 
 
