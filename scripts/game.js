@@ -3,23 +3,25 @@
 //////////////////////////////
 // Function so it can be rerun multiple times
 
+
 //grab data
-const APIKEY = '65c1d2fd72864d6ddfdcbf05';
-const link = "https://pandemic-b7ef.restdb.io/rest/pandemic";
+const APIKEY = '65c4301d86354ff420464897';
+const link = 'https://pandemic-7eff.restdb.io/rest/statement';
+
 const trueStatements = [];
 const falseStatements = [];
 
 // Using jQuery AJAX
 var ajaxSettings = {
-  "async": true,
-  "crossDomain": true,
-  "url": link,
-  "method": "GET",
-  "headers": {
-    "content-type": "application/json",
-    "x-apikey": APIKEY,
-    "cache-control": "no-cache"
-  }
+    "async": true,
+    "crossDomain": true,
+    "url": link,
+    "method": "GET",
+    "headers": {
+      "content-type": "application/json",
+      "x-apikey": APIKEY,
+      "cache-control": "no-cache"
+    }
 };
 
 // Using Fetch API
@@ -38,10 +40,11 @@ function getStatements() {
     .then(response => response.json())
     .then(data => {
       data.forEach(user => {
+        console.log("user statement"+user.Statements);
         if (user.Boolean) {
-          trueStatements.push(user.Statement);
+          trueStatements.push(user.Statements);
         } else {
-          falseStatements.push(user.Statement);
+          falseStatements.push(user.Statements);
         }
       });
       
