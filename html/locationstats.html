@@ -87,12 +87,15 @@
         <section id="row1">
             <h1 id="countryName">Location Statistics</h1>
             <div class="sectionchunk">
-                <div class="chart sm-col-8">
-                    <canvas id="myChart"></canvas>
-                </div>
-                <p id="errormessages"></p>
-                <lottie-player id="loadingDiv" src="../assets/graphanimation.json" background="transparent" speed="1" loop autoplay></lottie-player>    
+              <div class="chart sm-col-8">
+                  <canvas id="myChart"></canvas>
+              </div>
+              <div id="loadingDiv">
+                <lottie-player src="../assets/graphanimation.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                <p class="center-text">Loading...</p>
+              </div>    
             </div>
+            <p id="errormessages"></p>
             <p>
                 A huge chunk of flavour text. Idk what to put here. Maybe put some random text like this? Or maybe rant about what to put here? Honestly, I have no idea. But at least this part is filling out. Yeah, seems fine. Guess I'll put it like this?
             </p>
