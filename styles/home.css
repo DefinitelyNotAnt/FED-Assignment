@@ -1,7 +1,15 @@
 body {
   margin: 0;
   background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Change the font as needed */
+}
+
+.intro-text {
+  color: white;
+  font-size: 64px; /* Adjust the font size as needed */
+  text-align: left;
+  padding: 50px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Black outline */
 }
 h1{
   font-size: 3.75rem;
@@ -137,7 +145,7 @@ span{
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, rgb(35, 45, 227,0.7) 20%, rgba(173, 216, 230, 0) 100%);
+  background: linear-gradient(to right, rgb(35, 45, 227,1) 20%, rgba(173, 216, 230, 0) 100%);
   pointer-events: none;
   display: flex;
   align-items: center;
@@ -146,19 +154,11 @@ span{
 }
 
 .slide-text {  
-  width:75%;
+  width:85%;
   color: white; /* Adjust text color */
   padding: 20px;
 }
 
-.slide-title {
-  font-size: 24px; /* Adjust title font size */
-  text-align: left;
-}
-.slide-description {
-  font-size: 16px; /* Adjust description font size */
-  text-align: left;
-}
 
 /* Rest of your existing styles */
 
