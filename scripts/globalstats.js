@@ -1,56 +1,257 @@
-// about.js
 $(document).ready(function () {
     const apiKey = "CwcyKOR5lUGs6RTfUXNeHw==AfTraDK9OjymV4LP";
-
-    // List of known countries
-    const countries = ["Afghanistan", "Albania", "Algeria", "Malaysia","Singapore"/* ... add more countries ... */];
-
-    // Function to fetch COVID-19 data for a given country
+    const countries = [
+        "India",
+        "China",
+        "United States",
+        "Indonesia",
+        "Pakistan",
+        "Nigeria",
+        "Brazil",
+        "Bangladesh",
+        "Russia",
+        "Mexico",
+        "Ethiopia",
+        "Japan",
+        "Philippines",
+        "Egypt",
+        "DR Congo",
+        "Vietnam",
+        "Iran",
+        "Turkey",
+        "Germany",
+        "Thailand",
+        "United Kingdom",
+        "Tanzania",
+        "France",
+        "South Africa",
+        "Italy",
+        "Kenya",
+        "Myanmar",
+        "Colombia",
+        "South Korea",
+        "Uganda",
+        "Sudan",
+        "Spain",
+        "Argentina",
+        "Algeria",
+        "Iraq",
+        "Afghanistan",
+        "Poland",
+        "Canada",
+        "Morocco",
+        "Saudi Arabia",
+        "Ukraine",
+        "Angola",
+        "Uzbekistan",
+        "Yemen",
+        "Peru",
+        "Malaysia",
+        "Ghana",
+        "Mozambique",
+        "Nepal",
+        "Madagascar",
+        "Côte d'Ivoire",
+        "Venezuela",
+        "Cameroon",
+        "Niger",
+        "Australia",
+        "North Korea",
+        "Mali",
+        "Burkina Faso",
+        "Syria",
+        "Sri Lanka",
+        "Malawi",
+        "Zambia",
+        "Romania",
+        "Chile",
+        "Kazakhstan",
+        "Chad",
+        "Ecuador",
+        "Somalia",
+        "Guatemala",
+        "Senegal",
+        "Netherlands",
+        "Cambodia",
+        "Zimbabwe",
+        "Guinea",
+        "Rwanda",
+        "Benin",
+        "Burundi",
+        "Tunisia",
+        "Bolivia",
+        "Haiti",
+        "Belgium",
+        "Jordan",
+        "Dominican Republic",
+        "Cuba",
+        "South Sudan",
+        "Sweden",
+        "Honduras",
+        "Czech Republic (Czechia)",
+        "Azerbaijan",
+        "Greece",
+        "Papua New Guinea",
+        "Portugal",
+        "Hungary",
+        "Tajikistan",
+        "United Arab Emirates",
+        "Belarus",
+        "Israel",
+        "Togo",
+        "Austria",
+        "Switzerland",
+        "Sierra Leone",
+        "Laos",
+        "Serbia",
+        "Nicaragua",
+        "Libya",
+        "Paraguay",
+        "Kyrgyzstan",
+        "Bulgaria",
+        "Turkmenistan",
+        "El Salvador",
+        "Congo",
+        "Singapore",
+        "Denmark",
+        "Slovakia",
+        "Central African Republic",
+        "Finland",
+        "Norway",
+        "Liberia",
+        "State of Palestine",
+        "Lebanon",
+        "New Zealand",
+        "Costa Rica",
+        "Ireland",
+        "Mauritania",
+        "Oman",
+        "Panama",
+        "Kuwait",
+        "Croatia",
+        "Eritrea",
+        "Georgia",
+        "Mongolia",
+        "Moldova",
+        "Uruguay",
+        "Bosnia and Herzegovina",
+        "Albania",
+        "Jamaica",
+        "Armenia",
+        "Gambia",
+        "Lithuania",
+        "Qatar",
+        "Botswana",
+        "Namibia",
+        "Gabon",
+        "Lesotho",
+        "Guinea-Bissau",
+        "Slovenia",
+        "North Macedonia",
+        "Latvia",
+        "Equatorial Guinea",
+        "Trinidad and Tobago",
+        "Bahrain",
+        "Timor-Leste",
+        "Estonia",
+        "Mauritius",
+        "Cyprus",
+        "Eswatini",
+        "Djibouti",
+        "Fiji",
+        "Comoros",
+        "Guyana",
+        "Bhutan",
+        "Solomon Islands",
+        "Luxembourg",
+        "Montenegro",
+        "Suriname",
+        "Cabo Verde",
+        "Micronesia",
+        "Malta",
+        "Maldives",
+        "Brunei",
+        "Bahamas",
+        "Belize",
+        "Iceland",
+        "Vanuatu",
+        "Barbados",
+        "Sao Tome & Principe",
+        "Samoa",
+        "Saint Lucia",
+        "Kiribati",
+        "Grenada",
+        "Tonga",
+        "Seychelles",
+        "St. Vincent & Grenadines",
+        "Antigua and Barbuda",
+        "Andorra",
+        "Dominica",
+        "Saint Kitts & Nevis",
+        "Marshall Islands",
+        "Liechtenstein",
+        "Monaco",
+        "San Marino",
+        "Palau",
+        "Nauru",
+        "Tuvalu",
+        "Holy See"
+    ];
     function fetchData(country) {
         return $.ajax({
             method: 'GET',
-            url: 'https://api.api-ninjas.com/v1/covid19?country=' + country,
+            url: `https://api.api-ninjas.com/v1/covid19?country=${country}`,
             headers: { 'X-Api-Key': apiKey },
             contentType: 'application/json'
         });
     }
 
-    // Function to display the result in a table
     function displayTable(country, data) {
+        const resultContainer = $('.result-container');
+    
         if (data && data.cases) {
-            var tableHtml = '<table class="table">';
-            tableHtml += '<thead><tr><th>Date</th><th>Total Cases</th><th>New Cases</th></tr></thead>';
-            tableHtml += '<tbody>';
-
-            // Loop through the dates and add rows to the table
-            for (var date in data.cases) {
-                if (data.cases.hasOwnProperty(date)) {
-                    var dailyCases = data.cases[date];
-                    tableHtml += '<tr><td>' + date + '</td><td>' + dailyCases.total + '</td><td>' + dailyCases.new + '</td></tr>';
+            const yearlyData = {};
+    
+            // Loop through the dates and aggregate total cases for each year
+            Object.entries(data.cases).forEach(([date, dailyCases]) => {
+                const year = new Date(date).getFullYear();
+                if (!yearlyData[year]) {
+                    yearlyData[year] = 0;
                 }
-            }
-
-            tableHtml += '</tbody></table>';
-
-            // Append the table to the result-container div
-            $('.result-container').append('<h2>' + country + ' Cases</h2>').append(tableHtml);
-        } else {
-            // Display a message if there is no cases data
-            $('.result-container').append('<p>No cases data available for ' + country + '</p>');
+                yearlyData[year] += dailyCases.total;
+            });
+    
+            // Sort the yearly data in descending order of the year
+            const sortedYearlyData = Object.entries(yearlyData)
+                .sort(([yearA], [yearB]) => yearB - yearA);
+    
+            const tableHtml = `
+                <table class="table">
+                    <thead>
+                        <tr><th>Year</th><th>Total Cases</th></tr>
+                    </thead>
+                    <tbody>
+                        ${sortedYearlyData.map(([year, totalCases]) =>
+                            `<tr><td>${year}</td><td>${totalCases}</td></tr>`
+                        ).join('')}
+                    </tbody>
+                </table>`;
+    
+            resultContainer.append(`<h2>${country} Yearly Cases</h2>`).append(tableHtml);
         }
     }
+    
 
-    // Loop through each country and fetch data
     countries.forEach(function (country) {
         fetchData(country)
             .done(function (result) {
                 console.log(result);
-                displayTable(country, result[0]); // Assuming the data is the first element of the array
+                displayTable(country, result[0]);
             })
             .fail(function (jqXHR) {
                 console.error('Error: ', jqXHR.responseText);
-                // Display the error in the result-container div
-                $('.result-container').append('<p>Error fetching data for ' + country + ': ' + jqXHR.responseText + '</p>');
+                $('.result-container').append(`<p>Error fetching data for ${country}: ${jqXHR.responseText}</p>`);
             });
     });
+    
 });
