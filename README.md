@@ -15,10 +15,13 @@ https://pixso.net/app/editor/j8jiKUibePBX1AMz0eL8ig?icon_type=1&page-id=0%3A1
  2. Local defaults to Singapore and shows SIngapore's COVID-19 new cases data.
  3. Location prompts the user to input a country name and will search up the country using API, before making the data into a chart.
  It has an about page to provide detailed information about various topics, like Symptoms, medical data and About Us.
+ It also includes 2 games, a bubble clicking game and a card memory game, to teach mroe information about COVID-19.
+ The bubble game uses a restDB databases to get the data and puts it in the bubbles, while the card game is purely javascript.
+
 
 ### Features Left to Implement
-- Getting different country headlines (Complications include: getting news sources that are reliable, formatting it for each country, )
-
+- Getting different country headlines (Complications include: getting news sources that are reliable, formatting it for each country, etc)
+- Functioning search bar would require a lot of time to load due to the amount of covid data thre is.
 ## Technologies Used
 - [Lottie](https://bootstrap.com)
     - The project uses **Bootstrap** for website template.
@@ -44,15 +47,15 @@ Bugs across all pages:
     - Page style will not update the css to fit the mode until refresh
     - Local storage does reflect the change but the styling change will not be called
 
+3. Navbar in mobile:
+    - Use screen width of less than around 150~px based on the page
+    - Open up the navbar menu
+    - The words will clip past with some divs overlapping
+    - Can't really be fixed
 Page related bugs:
 
 1. Home Page:
-    - Bring mouse cursor inside the google maps embed
-    - Trailer will stop at the last location it was at before entering the embed
-    - Trailer will still follow if the cursor exits the embed
-    Bug 2:
-    - Click the "View larger map" on the embed
-    - Bring to a enw tab of google maps, which is unintended
+    -
 
 2. Local Stats
     - Hovering over the chart will cause slight lag
@@ -60,15 +63,23 @@ Page related bugs:
     - This lag is also caused when spamming the visibility for the chart
     - Probably hard to fix as decimation does not seem to work
 
-3. Activities > Games
+3. Activities > Games > Virus Game
     Bug 1:
-    - Text seems to display at full opacity contrary to the rest of the bubble
+    - With small screen view on bubbles with lots of text, the text will exceed the bubble.
     Bug 2:
     - Load the game window.
     - Minimise the tab / Alt+Tab into another window / Change windows
     - Return to the page
     - The bubbles will spawn all at once based on how long you have been away from the tab, based on the speed you last left.
+    Bug 3:
+    - The scoring system is broken
+    - On switching to a new database due to old one reaching requests limit, it somehow broke this part
+    - Score is set to 0 before virus game starts but becomes NaN after a bubble spawns
 
+4. Activities > Games > Memory game
+    Bug 1:
+    - On mobile view on navbar dropdown
+    - The spacebar to exit text overlaps with the game
 ## [Changes](PatchNotes.md) 
 Changes are usually documented [here](PatchNotes.md).
 ## Credits
