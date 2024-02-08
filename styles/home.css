@@ -3,14 +3,31 @@ body {
   background-color: #f0f0f0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Change the font as needed */
 }
-
-.intro-text {
-  color: white;
-  font-size: 64px; /* Adjust the font size as needed */
+.intro{
+  display: flex;
+  align-items: flex-start;
+  text-decoration: solid underline;
+  max-width: 800px;
   text-align: left;
-  padding: 50px;
+  font-size: 68px;
+  line-height: 1.6;
+}
+.intro2{
+  display: flex;
+  width: 60%;
+  align-items: flex-start;
+  text-decoration: solid;
+  max-width: 800px;
+  text-align: left;
+  font-size: 28px;
+  line-height: 1.6;
+}
+.intro-text {
+  font-size: 30px; /* Adjust the font size as needed */
+  text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Black outline */
 }
+
 h1{
   font-size: 3.75rem;
   font-weight: 400;
@@ -24,6 +41,7 @@ span{
   font-size: 64px!important;
   line-height: 76px;
   text-align: center;
+  background-color: aqua;
 }
 
 .row-container {
@@ -107,9 +125,6 @@ span{
   overflow: hidden;
 }
 
-.mySlides {
-  display: none;
-}
 
 .lottie-container{
   display:flex;
@@ -118,13 +133,17 @@ span{
 
 
 .column{  
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   flex:1;
-  padding:10px;
 }
 
 .map-container {
+  min-height: 550px;
   display: flex;
+  justify-content: center;
 }
 .map-elements {
   width:48%;
@@ -145,7 +164,7 @@ span{
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, rgb(35, 45, 227,1) 20%, rgba(173, 216, 230, 0) 100%);
+  background: linear-gradient(to right, rgb(35, 45, 227,0.9) 20%, rgba(173, 216, 230, 0) 100%);
   pointer-events: none;
   display: flex;
   align-items: center;
@@ -154,9 +173,10 @@ span{
 }
 
 .slide-text {  
-  width:85%;
+  height: 60%;
+  width:95%;
   color: white; /* Adjust text color */
-  padding: 20px;
+  padding: 10px;
 }
 
 
@@ -206,4 +226,19 @@ span{
 /* For Footer background */
 .footer-container{
   background-color: lightblue;
+}
+
+@media only screen and (max-width: 600px) {
+  body{
+    
+  }
+  .intro{
+    font-size: 50px;
+  }
+  .intro2{
+    font-size: 20px;
+  }
+  .intro-text{
+    font-size: 15px;
+  }
 }
